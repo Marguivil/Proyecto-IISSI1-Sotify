@@ -2,10 +2,10 @@
 
 ## Miembros del grupo LX-XXX-X (sustituir)
 
-1. Apellidos, Nombre
-1. Apellidos, Nombre
-1. Apellidos, Nombre
-1. Apellidos, Nombre
+1. Pérez Ponce, Ignacio
+2. Guichot Vila, Mario
+3. Redondo Rosco, Diana
+4. Barbero Luna, Alvaro
 
 ## 1. Introducción al problema
 
