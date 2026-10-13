@@ -47,7 +47,7 @@ Este glosario recoge los principales términos relacionados con el dominio del p
 
 ## 4. Catálogo de requisitos
 
-#### 4.1. Requisitos funcionales
+### 4.1. Requisitos funcionales
 
 ##### R.F.01. Registro de usuario
 
