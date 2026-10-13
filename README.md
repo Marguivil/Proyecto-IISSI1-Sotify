@@ -198,9 +198,49 @@ Como usuario registrado, quiero que el sistema almacene las canciones incluidas 
 
 #### 4.1.2. Reglas de negocio
 
-##### R.N.01. Título regla negocio
+##### R.N.01. Unicidad del correo electrónico
 
-Descripción de la regla de negocio.
+Cada cuenta de usuario debe estar asociada a una dirección de correo electrónico única. No se permitirá registrar dos cuentas con la misma dirección de correo electrónico.
+
+##### R.N.02. Validación de los datos de registro
+
+Para crear una cuenta, el usuario debe proporcionar todos los datos obligatorios y una dirección de correo electrónico con formato válido. La contraseña debe cumplir las condiciones de seguridad establecidas para la aplicación.
+
+##### R.N.03. Protección de las credenciales
+
+Las contraseñas de los usuarios no deben almacenarse en texto plano. El sistema debe utilizar un mecanismo seguro de almacenamiento de contraseñas y comprobar las credenciales durante el inicio de sesión.
+
+##### R.N.04. Autenticación para operaciones personales
+
+Las operaciones de creación, modificación y eliminación de listas de reproducción requieren que el usuario haya iniciado sesión. El sistema debe verificar la identidad del usuario antes de permitir estas operaciones.
+
+##### R.N.05. Disponibilidad del contenido musical
+
+Solo podrán consultarse y reproducirse como contenido disponible las canciones que estén registradas en el catálogo y habilitadas para su reproducción.
+
+##### R.N.06. Propiedad de las listas de reproducción
+
+Cada lista de reproducción debe estar asociada a un único usuario propietario. El usuario propietario será el responsable de gestionar el nombre de la lista y las canciones que contiene.
+
+##### R.N.07. Validez del nombre de una lista
+
+Toda lista de reproducción debe tener un nombre no vacío. No se permitirá crear una lista ni modificar su nombre utilizando únicamente espacios en blanco.
+
+##### R.N.08. Control de acceso a las listas
+
+Un usuario solo podrá modificar o eliminar las listas de reproducción de las que sea propietario. Tampoco podrá añadir o eliminar canciones de listas pertenecientes a otros usuarios.
+
+##### R.N.09. Integridad del catálogo musical
+
+Eliminar una canción de una lista de reproducción no debe eliminar la canción del catálogo musical. La canción debe seguir disponible para otros usuarios y para otras listas, siempre que continúe habilitada en el catálogo.
+
+##### R.N.10. Integridad de las relaciones entre datos
+
+Toda lista de reproducción debe estar asociada a un usuario existente, y toda canción incluida en una lista debe existir en el catálogo musical. El sistema no debe permitir relaciones que hagan referencia a usuarios, listas o canciones inexistentes.
+
+##### R.N.11. Conservación de la información personal
+
+Las listas de reproducción y sus asociaciones con las canciones deben mantenerse almacenadas al cerrar sesión. Cuando el usuario vuelva a iniciar sesión, debe poder recuperar sus listas y consultar su contenido.
 
 ### 4.2. Mapa de historias de usuario (opcional)
 
