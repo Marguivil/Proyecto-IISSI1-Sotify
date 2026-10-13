@@ -151,7 +151,7 @@ Como usuario autenticado, quiero cerrar sesión, para finalizar mi acceso a la c
 - Para volver a acceder a su cuenta, el usuario debe iniciar sesión de nuevo.
 
   
-#### 4.1.1. Requisitos de información
+### 4.1.1. Requisitos de información
 
 ##### R.I.01. Información de los usuarios
 
@@ -196,7 +196,7 @@ Como usuario registrado, quiero que el sistema almacene las canciones incluidas 
 - Al añadir o eliminar una canción, debe actualizarse la relación entre la lista y la canción.
 - Eliminar una canción de una lista no debe eliminarla del catálogo musical.
 
-#### 4.1.2. Reglas de negocio
+### 4.1.2. Reglas de negocio
 
 ##### R.N.01. Unicidad del correo electrónico
 
