@@ -51,8 +51,54 @@ Este glosario recoge los principales términos relacionados con el dominio del p
 ## 3. Visión general del sistema
 
 ### 3.1. Requisitos generales
+**3.1.1 Objetivo principal del sistema**
+  El cometido de Sotify es proporcionar una plataforma de streaming musical y gestión de datos acorde a la reestructuración por la CNMC, para ofrecer una alternativa eficiente y competitiva a la aplicación original. Este sistema permite a los usuarios buscar y reproducir música en streaming, gestionar colecciones mediante listas de reproducción personales y consultar las canciones de sus artistas favoritos, apoyándose en una base de datos optimizada.
+**3.1.2 Alcance Funcional**
+* **RG-01. Gestión de cuentas y autenticación:** Registro seguro de nuevos usuarios mediante correo electrónico, validación de credenciales en el inicio de sesión y gestión de sesiones activas (R.F.01, R.F.02, R.F.10).
+* **RG-02. Consulta y búsqueda en el catálogo musical:** Exploración y localización de canciones, artistas y álbumes disponibles mediante filtrado por texto o consulta directa de sus datos y atributos (R.F.03, R.F.04).
+* **RG-03. Control de reproducción multimedia:** Reproductor integrado para iniciar y pausar la reproducción de pistas musicales, mostrando en todo momento el título y artista activo (R.F.05).
+* **RG-04. Gestión de listas de reproducción personales:** Creación, edición, eliminación y administración del contenido de listas propias por parte de cada usuario registrado (R.F.06, R.F.07, R.F.08, R.F.09).
+* **RG-05. Gestión del catálogo de artistas:** Representación y asociación de artistas con sus respectivas canciones y álbumes publicados dentro del catálogo.
+* **RG-06. Almacenamiento y persistencia de información:** Base de datos relacional para persistir de forma consistente los datos de usuarios, catálogo musical y listas de reproducción (R.I.01 al R.I.04).
+**3.1.3. Límites del sistema (Fuera de alcance)**
+* **Pasarelas de cobro y suscripciones:** No se contempla la integración de pasarelas bancarias ni el cobro de cuotas en esta versión del sistema.
+* **Sistemas de recomendación compleja:** No se implementan algoritmos de aprendizaje automático (*machine learning*) para sugerencias basadas en hábitos de escucha.
+* **Gestión jurídica y contratos:** El sistema no abarca la gestión legal ni la firma digital de licencias con entidades de derechos de autor.
 
-### 3.2. Usuarios del sistema
+#### 3.2. Usuarios del sistema
+
+A partir del análisis del problema y de los requisitos especificados, se identifican los siguientes actores que interactúan con la plataforma:
+
+##### 3.2.1. Perfiles de usuario
+
+1. **Visitante**
+   * **Descripción:** Persona que accede a la aplicación sin haberse autenticado previamente.
+   * **Responsabilidades y acciones:** Acceder al formulario de registro introduciendo sus datos y tramitar el inicio de sesión si ya dispone de cuenta (R.F.01, R.F.02).
+   * **Nivel de acceso:** Restringido exclusivamente a las interfaces de registro e inicio de sesión.
+
+2. **Usuario Registrado**
+   * **Descripción:** Persona física con una cuenta activa en Sotify que hace uso habitual de la plataforma.
+   * **Responsabilidades y acciones:** Buscar contenido en el catálogo, reproducir y pausar canciones, y gestionar sus propias listas de reproducción personales (R.F.03 al R.F.09).
+   * **Nivel de acceso:** Consulta del catálogo público y control de lectura/escritura sobre sus propias listas de reproducción.
+
+3. **Artista**
+   * **Descripción:** Creador o grupo musical que dispone de material sonoro dentro de la plataforma.
+   * **Responsabilidades y acciones:** Figurar como autor en el catálogo de obras (canciones y álbumes) y utilizar la plataforma como oyente.
+   * **Nivel de acceso:** Acceso como usuario de la plataforma y atribución de autoría sobre sus obras en el catálogo.
+
+4. **Gestor de la Aplicación (Administrador del Sistema)**
+   * **Descripción:** Responsable técnico del correcto funcionamiento, seguridad y mantenimiento de Sotify.
+   * **Responsabilidades y acciones:** Velar por la disponibilidad del servicio (24/7), el rendimiento, la sincronización entre dispositivos y la seguridad y cifrado de las contraseñas (R.N.F. 01 al R.N.F. 06).
+   * **Nivel de acceso:** Acceso de supervisión técnica global sobre el sistema y la base de datos.
+  
+##### 3.2.2. Resumen de actores y permisos
+
+| Actor / Perfil | Tipo | Responsabilidades en Sotify | Privilegios / Alcance |
+| :--- | :--- | :--- | :--- |
+| **Visitante** | Humano (No autenticado) | Registro de cuenta y login en la plataforma. | Formularios de acceso (R.F.01, R.F.02) |
+| **Usuario Registrado** | Humano (Autenticado) | Búsqueda, reproducción y gestión íntegra de listas personales. | Catálogo (lectura) y listas propias (CRUD) |
+| **Artista** | Humano (Especializado) | Provisión de contenido musical y consumo de la plataforma. | Atribución en catálogo y funciones de usuario |
+| **Gestor de la Aplicación** | Humano (Mantenimiento) | Supervisión de disponibilidad, seguridad y rendimiento. | Mantenimiento técnico y control de datos |
 
 ## 4. Catálogo de requisitos
 
