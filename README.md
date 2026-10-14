@@ -53,14 +53,14 @@ Este glosario recoge los principales términos relacionados con el dominio del p
 ### 3.1. Requisitos generales
 #### 3.1.1 Objetivo principal del sistema
   El cometido de Sotify es proporcionar una plataforma de streaming musical y gestión de datos acorde a la reestructuración por la CNMC, para ofrecer una alternativa eficiente y competitiva a la aplicación original. Este sistema permite a los usuarios buscar y reproducir música en streaming, gestionar colecciones mediante listas de reproducción personales y consultar las canciones de sus artistas favoritos, apoyándose en una base de datos optimizada.
-**3.1.2 Alcance Funcional**
+#### 3.1.2 Alcance Funcional
 * **RG-01. Gestión de cuentas y autenticación:** Registro seguro de nuevos usuarios mediante correo electrónico, validación de credenciales en el inicio de sesión y gestión de sesiones activas (R.F.01, R.F.02, R.F.10).
 * **RG-02. Consulta y búsqueda en el catálogo musical:** Exploración y localización de canciones, artistas y álbumes disponibles mediante filtrado por texto o consulta directa de sus datos y atributos (R.F.03, R.F.04).
 * **RG-03. Control de reproducción multimedia:** Reproductor integrado para iniciar y pausar la reproducción de pistas musicales, mostrando en todo momento el título y artista activo (R.F.05).
 * **RG-04. Gestión de listas de reproducción personales:** Creación, edición, eliminación y administración del contenido de listas propias por parte de cada usuario registrado (R.F.06, R.F.07, R.F.08, R.F.09).
 * **RG-05. Gestión del catálogo de artistas:** Representación y asociación de artistas con sus respectivas canciones y álbumes publicados dentro del catálogo.
 * **RG-06. Almacenamiento y persistencia de información:** Base de datos relacional para persistir de forma consistente los datos de usuarios, catálogo musical y listas de reproducción (R.I.01 al R.I.04).
-**3.1.3. Límites del sistema (Fuera de alcance)**
+#### 3.1.3. Límites del sistema (Fuera de alcance)
 * **Pasarelas de cobro y suscripciones:** No se contempla la integración de pasarelas bancarias ni el cobro de cuotas en esta versión del sistema.
 * **Sistemas de recomendación compleja:** No se implementan algoritmos de aprendizaje automático (*machine learning*) para sugerencias basadas en hábitos de escucha.
 * **Gestión jurídica y contratos:** El sistema no abarca la gestión legal ni la firma digital de licencias con entidades de derechos de autor.
