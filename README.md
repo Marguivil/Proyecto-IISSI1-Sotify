@@ -245,8 +245,7 @@ Toda lista de reproducción debe estar asociada a un usuario existente, y toda c
 Las listas de reproducción y sus asociaciones con las canciones deben mantenerse almacenadas al cerrar sesión. Cuando el usuario vuelva a iniciar sesión, debe poder recuperar sus listas y consultar su contenido.
 
 ### 4.2. Mapa de historias de usuario (opcional)
-
-<img width="320" height="240" alt="image" src="https://github.com/user-attachments/assets/0076427f-bb1c-4bf8-9827-5d6955fd546f" />
+<img width="1647" height="522" alt="image" src="https://github.com/user-attachments/assets/5ecdae27-1a01-440f-a5da-cfad510bf9c5" />
 
 
 ### 4.3. Requisitos no funcionales (opcional)
