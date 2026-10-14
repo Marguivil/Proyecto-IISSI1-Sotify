@@ -51,7 +51,7 @@ Este glosario recoge los principales términos relacionados con el dominio del p
 ## 3. Visión general del sistema
 
 ### 3.1. Requisitos generales
-**3.1.1 Objetivo principal del sistema**
+#### 3.1.1 Objetivo principal del sistema
   El cometido de Sotify es proporcionar una plataforma de streaming musical y gestión de datos acorde a la reestructuración por la CNMC, para ofrecer una alternativa eficiente y competitiva a la aplicación original. Este sistema permite a los usuarios buscar y reproducir música en streaming, gestionar colecciones mediante listas de reproducción personales y consultar las canciones de sus artistas favoritos, apoyándose en una base de datos optimizada.
 **3.1.2 Alcance Funcional**
 * **RG-01. Gestión de cuentas y autenticación:** Registro seguro de nuevos usuarios mediante correo electrónico, validación de credenciales en el inicio de sesión y gestión de sesiones activas (R.F.01, R.F.02, R.F.10).
@@ -65,7 +65,7 @@ Este glosario recoge los principales términos relacionados con el dominio del p
 * **Sistemas de recomendación compleja:** No se implementan algoritmos de aprendizaje automático (*machine learning*) para sugerencias basadas en hábitos de escucha.
 * **Gestión jurídica y contratos:** El sistema no abarca la gestión legal ni la firma digital de licencias con entidades de derechos de autor.
 
-#### 3.2. Usuarios del sistema
+### 3.2. Usuarios del sistema
 
 A partir del análisis del problema y de los requisitos especificados, se identifican los siguientes actores que interactúan con la plataforma:
 
