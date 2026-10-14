@@ -9,7 +9,14 @@
 
 ## 1. Introducción al problema
 
-- Descripción del problema para poner en contexto el proyecto, incluyendo información sobre los clientes y usuarios, la situación actual, problemas, expectativas, etc. Se valorará la presencia de información multimedia (fotos, gráficos, documentos escaneados, etc.).
+Spotify ha caido en una demanda por practicas monopolisticas por la CNMC (Comisión Nacional de los Mercados y la Competencia) y actualmente se encuentra inoperativa. Para ello, la empresa de Spotify decide partir la empresa en dos. Una parte con Spotify o otra con Sotify, la alternativa antimonopolio que ha ofrecido la CNMC. El proyecto consiste en diseñar la aplicación de streaming musical junto con su base de datos que permita organizar y gestionar la información de manera eficiente (incluso mejor que la original).
+
+Los usuarios podrán crear sus propias listas de reproduccion, seguir a sus artistas favoritos, reproducir canciones y consultar su historial de música. Por otro lado, los artistas podrán publicar álbumes y canciones, así como reproducir música dentro de la plataforma.
+
+La finalidad del proyecto es desarrollar un modelo de base de datos que represente correctamente las relaciones entre las distintas entidades, facilite la consulta y actualización. De esta forma, se pretende crear una estructura que permita cumplir las necesidades de los usuarios y los artistas.
+
+![Logo de Sotify](img/Sotify_Logo.png)
+*Logo de Sotify*
 
 ## 2. Glosario de términos
 
