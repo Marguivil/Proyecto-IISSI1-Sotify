@@ -246,7 +246,8 @@ Las listas de reproducción y sus asociaciones con las canciones deben manteners
 
 ### 4.2. Mapa de historias de usuario (opcional)
 
-![Uploading image.png…]()
+<img width="320" height="240" alt="image" src="https://github.com/user-attachments/assets/0076427f-bb1c-4bf8-9827-5d6955fd546f" />
+
 
 ### 4.3. Requisitos no funcionales (opcional)
 
