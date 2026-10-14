@@ -246,6 +246,8 @@ Las listas de reproducción y sus asociaciones con las canciones deben manteners
 
 ### 4.2. Mapa de historias de usuario (opcional)
 
+![Uploading image.png…]()
+
 ### 4.3. Requisitos no funcionales (opcional)
 
 **R.N.F. 01. Disponibilidad 24/7**
