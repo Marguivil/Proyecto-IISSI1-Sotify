@@ -39,6 +39,8 @@ Este glosario recoge los principales términos relacionados con el dominio del p
 
 **Usuario:** Persona que utiliza la aplicación para buscar música, escuchar canciones y gestionar sus listas de reproducción. En caso de disponer de una cuenta registrada, podrá acceder a las funcionalidades personalizadas que ofrezca el sistema.
 
+**Modo aleatorio:** Funcionalidad que permite al usuario escuchar una lista de reproducción sin un orden definido
+
 ## 3. Visión general del sistema
 
 ### 3.1. Requisitos generales
