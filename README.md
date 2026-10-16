@@ -1,6 +1,6 @@
 # Título Proyecto
 
-## Miembros del grupo LX-XXX-X (sustituir)
+## Miembros del grupo L2-ABS-11
 
 1. Pérez Ponce, Ignacio
 2. Guichot Vila, Mario
