@@ -160,48 +160,34 @@ Como usuario autenticado, quiero cerrar sesión, para finalizar mi acceso a la c
   
 ### 4.1.1. Requisitos de información
 
-##### R.I.01. Información de los usuarios
+##### R.I.01. Información sobre canciones
 
-Como sistema, quiero almacenar los datos de los usuarios registrados, para identificar sus cuentas y gestionar el acceso a sus funcionalidades personales.
+Como gestor de la aplicación, quiero disponer de la información correspondiente a cada canción del catálogo, incluyendo título, duración, artistas participantes, fecha de lanzamiento, letra, álbum al que pertenece y número de reproducciones, para mantenerla actualizada
 
-***Prueba de aceptación***
-- El sistema debe almacenar un identificador único para cada usuario.
-- Debe almacenar el nombre de usuario, el correo electrónico y la información de autenticación necesaria.
-- El correo electrónico debe ser único para cada cuenta.
-- Las contraseñas no deben almacenarse en texto plano.
-- La información de la cuenta debe mantenerse después de cerrar la sesión.
+##### R.I.02. Información sobre usuarios
 
-##### R.I.02. Información del catálogo musical
+Como gestor de la aplicación, quiero almacenar la siguiente información correspondiente a los usuarios registrados: nombre de usuario, correo electrónico, contraseña y fecha de nacimiento, para poder gestionarlos correctamente y mejorar su experiencia
 
-Como usuario, quiero consultar la información de las canciones, los artistas y los álbumes, para identificar y seleccionar el contenido musical disponible.
+##### R.I.03. Información sobre álbumes
 
-***Prueba de aceptación***
-- El sistema debe almacenar un identificador único para cada canción, artista y álbum.
-- De cada canción debe poder consultarse, como mínimo, su título y duración.
-- De cada artista debe poder consultarse, como mínimo, su nombre.
-- De cada álbum debe poder consultarse, como mínimo, su título.
-- El sistema debe permitir relacionar las canciones con sus artistas y, cuando corresponda, con sus álbumes.
+Como gestor de la aplicación, quiero disponer de la información sobre el título, los artistas participantes, la portada y la fecha de lanzamiento de los álbumes, para poder gestionarlos dentro de la aplicación
 
-##### R.I.03. Información de las listas de reproducción
+##### R.I.04. Información sobre artistas
 
-Como usuario registrado, quiero que el sistema almacene mis listas de reproducción, para poder consultarlas y modificarlas cuando vuelva a acceder a mi cuenta.
+Como gestor de la aplicación, quiero almacenar la siguiente información sobre los artistas: nombre, nombre artístico, país, número de canciones, número de álbumes y número total de reproducciones
 
-***Prueba de aceptación***
-- Cada lista debe tener un identificador único y un nombre.
-- El sistema debe almacenar la relación entre cada lista y el usuario propietario.
-- El sistema debe recuperar las listas correspondientes al usuario autenticado.
-- Los cambios realizados en una lista deben mantenerse después de cerrar la sesión.
+##### R.I.05. Información sobre listas de reproducción
 
-##### R.I.04. Información de las canciones incluidas en las listas
+Como gestor de la aplicación, quiero disponer de la información sobre el nombre, la cantidad de canciones incluidas, el creador de la lista y las canciones que contiene cada lista de reproducción, para poder gestionar las listas
 
-Como usuario registrado, quiero que el sistema almacene las canciones incluidas en cada lista de reproducción y su orden, para conservar su contenido y organización.
+##### R.I.06. Información sobre favoritos
 
-***Prueba de aceptación***
-- El sistema debe almacenar qué canciones pertenecen a cada lista.
-- Debe poder consultarse el conjunto de canciones asociado a una lista.
-- El sistema debe conservar el orden de las canciones.
-- Al añadir o eliminar una canción, debe actualizarse la relación entre la lista y la canción.
-- Eliminar una canción de una lista no debe eliminarla del catálogo musical.
+Como gestor de la aplicación, quiero disponer de la información correspondiente a las canciones marcadas como favoritos, como el título, el usuario que la ha marcado como favorito, y la lista completa de canciones marcadas como favorito por un mismo usuario, para poder crear una lista de reproducción con las canciones favoritas de cada usuario
+
+##### R.I.01. Información sobre canciones
+
+
+
 
 ### 4.1.2. Reglas de negocio
 
