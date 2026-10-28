@@ -75,6 +75,9 @@ Como usuario registrado, quiero iniciar sesión con mi correo electrónico y con
 - Si las credenciales son correctas, el sistema debe permitir el acceso a la cuenta correspondiente.
 - Si las credenciales son incorrectas, el sistema debe mostrar un mensaje de error y denegar el acceso.
 - Un usuario que no haya iniciado sesión no debe poder acceder a las funcionalidades que requieran autenticación.
+- Tras iniciar sesión, el usuario debe poder consultar los datos de su cuenta personal.
+- Si el acceso es denegado, el usuario no debe poder consultar información de ninguna cuenta.
+
 
 #### R.F.03. Consulta del catálogo musical
 
@@ -85,6 +88,9 @@ Como usuario, quiero consultar el catálogo musical, para descubrir las cancione
 - El usuario debe poder consultar la información de una canción.
 - El usuario debe poder consultar la información de los artistas y álbumes disponibles.
 - Si el catálogo está vacío, el sistema debe informar de que no hay contenido disponible.
+- El usuario debe poder consultar las canciones asociadas a un álbum o a un artista.
+- La consulta del catálogo no debe modificar ningún dato.
+
 
 #### R.F.04. Búsqueda de música
 
@@ -95,6 +101,9 @@ Como usuario, quiero buscar canciones, artistas y álbumes por su nombre, para e
 - Los resultados deben mostrar el contenido que coincida con el criterio de búsqueda.
 - Los resultados deben permitir distinguir entre canciones, artistas y álbumes.
 - Si no existen coincidencias, el sistema debe informar de que no se han encontrado resultados.
+- El usuario debe poder consultar la información detallada de cualquier elemento mostrado en los resultados.
+- La búsqueda no debe modificar ningún dato.
+
 
 #### R.F.05. Reproducción y pausa de canciones
 
@@ -105,6 +114,9 @@ Como usuario, quiero reproducir y pausar canciones del catálogo, para escuchar 
 - El usuario debe poder pausar una canción que se esté reproduciendo.
 - El reproductor debe mostrar el título de la canción y el nombre del artista.
 - Si una canción no está disponible para su reproducción, el sistema debe informar al usuario.
+- El usuario debe poder consultar el estado actual del reproductor (reproduciendo o en pausa).
+- El usuario debe poder consultar qué canción está cargada en el reproductor.
+
 
 #### R.F.06. Creación de listas de reproducción
 
@@ -115,6 +127,10 @@ Como usuario registrado, quiero crear listas de reproducción con un nombre, par
 - El sistema debe asociar la lista al usuario que la ha creado.
 - La lista debe aparecer en la colección personal del usuario.
 - El sistema no debe permitir crear listas con nombres vacíos o formados únicamente por espacios en blanco.
+- El usuario debe poder consultar su colección personal y ver el nombre de cada lista creada.
+- El usuario no debe poder consultar, en su colección, listas pertenecientes a otras cuentas.
+- Tras un intento de crear una lista con nombre vacío, la consulta de la colección no debe mostrar ninguna lista nueva.
+
 
 #### R.F.07. Añadir canciones a una lista de reproducción
 
@@ -126,6 +142,10 @@ Como usuario registrado, quiero añadir canciones del catálogo a mis listas de 
 - La canción debe aparecer en el contenido de la lista seleccionada.
 - Los cambios deben conservarse después de cerrar la sesión y volver a iniciarla.
 - El usuario no debe poder modificar las listas pertenecientes a otras cuentas.
+- El usuario debe poder consultar el contenido de una lista propia y ver las canciones añadidas.
+- Tras volver a iniciar sesión, la consulta de la lista debe mostrar las mismas canciones.
+- La consulta de las listas de otras cuentas no debe mostrar ningún cambio realizado por el usuario.
+
 
 #### R.F.08. Eliminar canciones de una lista de reproducción
 
@@ -136,6 +156,10 @@ Como usuario registrado, quiero eliminar canciones de mis listas de reproducció
 - Tras eliminarla, la canción debe dejar de aparecer en esa lista.
 - La canción debe seguir disponible en el catálogo musical.
 - El usuario no debe poder eliminar canciones de listas pertenecientes a otras cuentas.
+- Tras eliminar la canción, la consulta del contenido de la lista no debe mostrarla.
+- Tras eliminar la canción, la consulta del catálogo debe seguir mostrándola.
+- La consulta de las listas de otras cuentas debe mostrar su contenido sin cambios.
+
 
 ### R.F.09. Modificación y eliminación de listas de reproducción
 
@@ -147,6 +171,9 @@ Como usuario registrado, quiero cambiar el nombre de mis listas de reproducción
 - El sistema debe solicitar confirmación antes de eliminar una lista.
 - Tras eliminarla, la lista debe dejar de aparecer en la cuenta del usuario.
 - El usuario no debe poder modificar ni eliminar listas pertenecientes a otras cuentas.
+- El usuario debe poder consultar las canciones asociadas a un álbum o a un artista.
+- La consulta del catálogo no debe modificar ningún dato.
+
 
 #### R.F.10. Cierre de sesión
 
@@ -156,6 +183,9 @@ Como usuario autenticado, quiero cerrar sesión, para finalizar mi acceso a la c
 - El sistema debe ofrecer una opción para cerrar sesión.
 - Al cerrar sesión, el usuario debe dejar de tener acceso a las funcionalidades que requieren autenticación.
 - Para volver a acceder a su cuenta, el usuario debe iniciar sesión de nuevo.
+- El usuario debe poder consultar la información detallada de cualquier elemento mostrado en los resultados.
+- La búsqueda no debe modificar ningún dato.
+
 
   
 ### 4.1.1. Requisitos de información
