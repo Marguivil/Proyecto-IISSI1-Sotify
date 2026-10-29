@@ -66,14 +66,14 @@ Este glosario recoge los principales términos relacionados con el dominio del p
 
 ### 4.1. Requisitos funcionales
 
-#### R.F.01. Inicio de sesión####
+#### R.F.01. Inicio de sesión
 * **Como**: Usuario registrado
 * **Quiero**: Iniciar sesión con mi correo electrónico y contraseña.
 * **Para**: Acceder a mi cuenta personal y a las funcionalidades que requieren autenticación.
 * **Prueba de aceptación**: Con credenciales correctas, el sistema da acceso a la cuenta correspondiente. Con credenciales incorrectas, muestra un mensaje de error y deniega el acceso. Un usuario sin sesión iniciada no puede acceder a las funcionalidades protegidas.
 
 
-#### R.F.02. Consulta del catálogo musical####
+#### R.F.02. Consulta del catálogo musical
 
 * **Como**: Usuario
 * **Quiero**: Listar las canciones, artistas y álbumes disponibles en la aplicación, y consultar las canciones asociadas a un álbum o a un artista.
@@ -81,7 +81,7 @@ Este glosario recoge los principales términos relacionados con el dominio del p
 * **Prueba de aceptación**: El sistema muestra las canciones, artistas y álbumes del catálogo (consulta sobre las tablas Cancion, Artista y Album). Al seleccionar un álbum o un artista, devuelve sus canciones asociadas. Si el catálogo está vacío, informa de que no hay contenido disponible. La consulta no modifica ningún dato.
 
 
-#### R.F.03. Búsqueda de música####
+#### R.F.03. Búsqueda de música
 
 * **Como**: Usuario
 * **Quiero**: Buscar canciones, artistas y álbumes por su nombre.
@@ -89,7 +89,7 @@ Este glosario recoge los principales términos relacionados con el dominio del p
 * **Prueba de aceptación**: Al introducir un texto, el sistema devuelve los elementos cuyo nombre coincida, diferenciando si son canciones, artistas o álbumes. Si no hay coincidencias, informa de que no se han encontrado resultados. La búsqueda no modifica ningún dato.
 
 
-#### R.F.04. Reproducción y pausa de canciones####
+#### R.F.04. Reproducción y pausa de canciones
 
 * **Como**: Usuario
 * **Quiero**: Reproducir y pausar canciones del catálogo.
@@ -97,7 +97,7 @@ Este glosario recoge los principales términos relacionados con el dominio del p
 * **Prueba de aceptación**: Al seleccionar una canción disponible, el reproductor inicia la reproducción y muestra su título, el nombre del artista y el estado actual (reproduciendo o en pausa). El usuario puede pausar la canción en curso. Si la canción no está disponible para su reproducción, el sistema informa al usuario.
 
 
-#### R.F.05. Creación de listas de reproducción####
+#### R.F.05. Creación de listas de reproducción
 
 * **Como**: Usuario registrado
 * **Quiero**: Crear listas de reproducción con un nombre.
@@ -105,7 +105,7 @@ Este glosario recoge los principales términos relacionados con el dominio del p
 * **Prueba de aceptación**: El sistema crea la lista asociada al usuario autenticado y la muestra en su colección personal. No permite crear listas con nombre vacío o formado solo por espacios en blanco, y en ese caso la colección no muestra ninguna lista nueva. El usuario solo ve en su colección las listas propias.
 
 
-#### R.F.06. Gestión de canciones en una lista de reproducción####
+#### R.F.06. Gestión de canciones en una lista de reproducción
 
 * **Como**: Usuario registrado
 * **Quiero:** Añadir canciones del catálogo a mis listas y eliminarlas de ellas.
@@ -113,7 +113,7 @@ Este glosario recoge los principales términos relacionados con el dominio del p
 * **Prueba de aceptación**: Al añadir una canción a una lista propia, esta aparece en su contenido y se conserva tras cerrar sesión y volver a iniciarla. Al eliminarla, deja de aparecer en la lista pero sigue disponible en el catálogo. El usuario no puede modificar el contenido de listas pertenecientes a otras cuentas, y estas permanecen sin cambios.
 
 
-#### R.F.07. Modificación y eliminación de listas de reproducción####
+#### R.F.07. Modificación y eliminación de listas de reproducción
 
 * **Como:** Usuario registrado
 * **Quiero:** Cambiar el nombre de mis listas de reproducción o eliminarlas.
