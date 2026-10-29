@@ -66,125 +66,68 @@ Este glosario recoge los principales términos relacionados con el dominio del p
 
 ### 4.1. Requisitos funcionales
 
-#### R.F.01. Inicio de sesión
+####R.F.01. Inicio de sesión####
 
-Como usuario registrado, quiero iniciar sesión con mi correo electrónico y contraseña, para acceder a mi cuenta personal.
-
-***Prueba de aceptación***
-- El sistema debe permitir introducir las credenciales de acceso.
-- Si las credenciales son correctas, el sistema debe permitir el acceso a la cuenta correspondiente.
-- Si las credenciales son incorrectas, el sistema debe mostrar un mensaje de error y denegar el acceso.
-- Un usuario que no haya iniciado sesión no debe poder acceder a las funcionalidades que requieran autenticación.
-- Tras iniciar sesión, el usuario debe poder consultar los datos de su cuenta personal.
-- Si el acceso es denegado, el usuario no debe poder consultar información de ninguna cuenta.
+**Como**: Usuario registrado
+**Quiero**: Iniciar sesión con mi correo electrónico y contraseña.
+**Para**: Acceder a mi cuenta personal y a las funcionalidades que requieren autenticación.
+**Prueba de aceptación**: Con credenciales correctas, el sistema da acceso a la cuenta correspondiente. Con credenciales incorrectas, muestra un mensaje de error y deniega el acceso. Un usuario sin sesión iniciada no puede acceder a las funcionalidades protegidas.
 
 
-#### R.F.02. Consulta del catálogo musical
+####R.F.02. Consulta del catálogo musical####
 
-Como usuario, quiero consultar el catálogo musical, para descubrir las canciones, los artistas y los álbumes disponibles en la aplicación.
-
-***Prueba de aceptación***
-- El sistema debe mostrar las canciones disponibles en el catálogo.
-- El usuario debe poder consultar la información de una canción.
-- El usuario debe poder consultar la información de los artistas y álbumes disponibles.
-- Si el catálogo está vacío, el sistema debe informar de que no hay contenido disponible.
-- El usuario debe poder consultar las canciones asociadas a un álbum o a un artista.
-- La consulta del catálogo no debe modificar ningún dato.
+**Como**: Usuario
+**Quiero**: Listar las canciones, artistas y álbumes disponibles en la aplicación, y consultar las canciones asociadas a un álbum o a un artista.
+**Para**: Descubrir la música disponible en el catálogo.
+**Prueba de aceptación**: El sistema muestra las canciones, artistas y álbumes del catálogo (consulta sobre las tablas Cancion, Artista y Album). Al seleccionar un álbum o un artista, devuelve sus canciones asociadas. Si el catálogo está vacío, informa de que no hay contenido disponible. La consulta no modifica ningún dato.
 
 
-#### R.F.03. Búsqueda de música
+####R.F.03. Búsqueda de música####
 
-Como usuario, quiero buscar canciones, artistas y álbumes por su nombre, para encontrar fácilmente la música que deseo escuchar.
-
-***Prueba de aceptación***
-- El sistema debe permitir introducir un texto de búsqueda.
-- Los resultados deben mostrar el contenido que coincida con el criterio de búsqueda.
-- Los resultados deben permitir distinguir entre canciones, artistas y álbumes.
-- Si no existen coincidencias, el sistema debe informar de que no se han encontrado resultados.
-- El usuario debe poder consultar la información detallada de cualquier elemento mostrado en los resultados.
-- La búsqueda no debe modificar ningún dato.
+**Como**: Usuario
+**Quiero**: Buscar canciones, artistas y álbumes por su nombre.
+**Para**: Encontrar rápidamente la música que deseo escuchar.
+**Prueba de aceptación**: Al introducir un texto, el sistema devuelve los elementos cuyo nombre coincida, diferenciando si son canciones, artistas o álbumes. Si no hay coincidencias, informa de que no se han encontrado resultados. La búsqueda no modifica ningún dato.
 
 
-#### R.F.04. Reproducción y pausa de canciones
+####R.F.04. Reproducción y pausa de canciones####
 
-Como usuario, quiero reproducir y pausar canciones del catálogo, para escuchar la música disponible en la aplicación.
-
-***Prueba de aceptación***
-- El sistema debe permitir iniciar la reproducción de una canción disponible.
-- El usuario debe poder pausar una canción que se esté reproduciendo.
-- El reproductor debe mostrar el título de la canción y el nombre del artista.
-- Si una canción no está disponible para su reproducción, el sistema debe informar al usuario.
-- El usuario debe poder consultar el estado actual del reproductor (reproduciendo o en pausa).
-- El usuario debe poder consultar qué canción está cargada en el reproductor.
+**Como**: Usuario
+**Quiero**: Reproducir y pausar canciones del catálogo.
+**Para**: Escuchar la música disponible en la aplicación.
+**Prueba de aceptación**: Al seleccionar una canción disponible, el reproductor inicia la reproducción y muestra su título, el nombre del artista y el estado actual (reproduciendo o en pausa). El usuario puede pausar la canción en curso. Si la canción no está disponible para su reproducción, el sistema informa al usuario.
 
 
-#### R.F.05. Creación de listas de reproducción
+####R.F.05. Creación de listas de reproducción####
 
-Como usuario registrado, quiero crear listas de reproducción con un nombre, para organizar las canciones según mis preferencias.
-
-***Prueba de aceptación***
-- El sistema debe permitir introducir el nombre de una nueva lista.
-- El sistema debe asociar la lista al usuario que la ha creado.
-- La lista debe aparecer en la colección personal del usuario.
-- El sistema no debe permitir crear listas con nombres vacíos o formados únicamente por espacios en blanco.
-- El usuario debe poder consultar su colección personal y ver el nombre de cada lista creada.
-- El usuario no debe poder consultar, en su colección, listas pertenecientes a otras cuentas.
-- Tras un intento de crear una lista con nombre vacío, la consulta de la colección no debe mostrar ninguna lista nueva.
+**Como**: Usuario registrado
+**Quiero**: Crear listas de reproducción con un nombre.
+**Para**: Organizar las canciones según mis preferencias.
+**Prueba de aceptación**: El sistema crea la lista asociada al usuario autenticado y la muestra en su colección personal. No permite crear listas con nombre vacío o formado solo por espacios en blanco, y en ese caso la colección no muestra ninguna lista nueva. El usuario solo ve en su colección las listas propias.
 
 
-#### R.F.06. Añadir canciones a una lista de reproducción
+####R.F.06. Gestión de canciones en una lista de reproducción####
 
-Como usuario registrado, quiero añadir canciones del catálogo a mis listas de reproducción, para reunir en ellas la música que me interesa.
-
-***Prueba de aceptación***
-- El sistema debe permitir seleccionar una canción del catálogo.
-- El sistema debe permitir añadirla a una lista de reproducción propia.
-- La canción debe aparecer en el contenido de la lista seleccionada.
-- Los cambios deben conservarse después de cerrar la sesión y volver a iniciarla.
-- El usuario no debe poder modificar las listas pertenecientes a otras cuentas.
-- El usuario debe poder consultar el contenido de una lista propia y ver las canciones añadidas.
-- Tras volver a iniciar sesión, la consulta de la lista debe mostrar las mismas canciones.
-- La consulta de las listas de otras cuentas no debe mostrar ningún cambio realizado por el usuario.
+**Como**: Usuario registrado
+**Quiero:** Añadir canciones del catálogo a mis listas y eliminarlas de ellas.
+**Para**: Mantener las listas actualizadas con la música que me interesa.
+**Prueba de aceptación**: Al añadir una canción a una lista propia, esta aparece en su contenido y se conserva tras cerrar sesión y volver a iniciarla. Al eliminarla, deja de aparecer en la lista pero sigue disponible en el catálogo. El usuario no puede modificar el contenido de listas pertenecientes a otras cuentas, y estas permanecen sin cambios.
 
 
-#### R.F.07. Eliminar canciones de una lista de reproducción
+####R.F.07. Modificación y eliminación de listas de reproducción####
 
-Como usuario registrado, quiero eliminar canciones de mis listas de reproducción, para mantenerlas actualizadas según mis preferencias.
-
-***Prueba de aceptación***
-- El sistema debe permitir seleccionar una canción incluida en una lista propia.
-- Tras eliminarla, la canción debe dejar de aparecer en esa lista.
-- La canción debe seguir disponible en el catálogo musical.
-- El usuario no debe poder eliminar canciones de listas pertenecientes a otras cuentas.
-- Tras eliminar la canción, la consulta del contenido de la lista no debe mostrarla.
-- Tras eliminar la canción, la consulta del catálogo debe seguir mostrándola.
-- La consulta de las listas de otras cuentas debe mostrar su contenido sin cambios.
+**Como:** Usuario registrado
+**Quiero:** Cambiar el nombre de mis listas de reproducción o eliminarlas.
+**Para:** Mantener organizada mi colección musical.
+**Prueba de aceptación:** El sistema permite renombrar una lista propia, pero no guardar un nombre vacío. Antes de eliminar una lista solicita confirmación; tras confirmarla, la lista deja de aparecer en la cuenta del usuario. El usuario no puede modificar ni eliminar listas de otras cuentas.
 
 
-### R.F.08. Modificación y eliminación de listas de reproducción
+####R.F.08. Cierre de sesión####
 
-Como usuario registrado, quiero cambiar el nombre de mis listas de reproducción o eliminarlas, para mantener organizada mi colección musical.
-
-***Prueba de aceptación***
-- El sistema debe permitir modificar el nombre de una lista propia.
-- El sistema no debe permitir guardar un nombre vacío.
-- El sistema debe solicitar confirmación antes de eliminar una lista.
-- Tras eliminarla, la lista debe dejar de aparecer en la cuenta del usuario.
-- El usuario no debe poder modificar ni eliminar listas pertenecientes a otras cuentas.
-- El usuario debe poder consultar las canciones asociadas a un álbum o a un artista.
-- La consulta del catálogo no debe modificar ningún dato.
-
-
-#### R.F.09. Cierre de sesión
-
-Como usuario autenticado, quiero cerrar sesión, para finalizar mi acceso a la cuenta de forma segura.
-
-***Prueba de aceptación***
-- El sistema debe ofrecer una opción para cerrar sesión.
-- Al cerrar sesión, el usuario debe dejar de tener acceso a las funcionalidades que requieren autenticación.
-- Para volver a acceder a su cuenta, el usuario debe iniciar sesión de nuevo.
-- El usuario debe poder consultar la información detallada de cualquier elemento mostrado en los resultados.
-- La búsqueda no debe modificar ningún dato.
+**Como:** Usuario autenticado
+**Quiero:** Cerrar sesión.
+**Para:** Finalizar mi acceso a la cuenta de forma segura.
+**Prueba de aceptación:** El sistema ofrece una opción de cerrar sesión. Tras usarla, el usuario deja de tener acceso a las funcionalidades que requieren autenticación y debe iniciar sesión de nuevo para volver a acceder.
 
 
   
