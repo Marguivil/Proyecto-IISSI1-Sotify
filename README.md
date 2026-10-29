@@ -66,7 +66,7 @@ Este glosario recoge los principales términos relacionados con el dominio del p
 
 ### 4.1. Requisitos funcionales
 
-#### R.F.02. Inicio de sesión
+#### R.F.01. Inicio de sesión
 
 Como usuario registrado, quiero iniciar sesión con mi correo electrónico y contraseña, para acceder a mi cuenta personal.
 
@@ -79,7 +79,7 @@ Como usuario registrado, quiero iniciar sesión con mi correo electrónico y con
 - Si el acceso es denegado, el usuario no debe poder consultar información de ninguna cuenta.
 
 
-#### R.F.03. Consulta del catálogo musical
+#### R.F.02. Consulta del catálogo musical
 
 Como usuario, quiero consultar el catálogo musical, para descubrir las canciones, los artistas y los álbumes disponibles en la aplicación.
 
@@ -92,7 +92,7 @@ Como usuario, quiero consultar el catálogo musical, para descubrir las cancione
 - La consulta del catálogo no debe modificar ningún dato.
 
 
-#### R.F.04. Búsqueda de música
+#### R.F.03. Búsqueda de música
 
 Como usuario, quiero buscar canciones, artistas y álbumes por su nombre, para encontrar fácilmente la música que deseo escuchar.
 
@@ -105,7 +105,7 @@ Como usuario, quiero buscar canciones, artistas y álbumes por su nombre, para e
 - La búsqueda no debe modificar ningún dato.
 
 
-#### R.F.05. Reproducción y pausa de canciones
+#### R.F.04. Reproducción y pausa de canciones
 
 Como usuario, quiero reproducir y pausar canciones del catálogo, para escuchar la música disponible en la aplicación.
 
@@ -118,7 +118,7 @@ Como usuario, quiero reproducir y pausar canciones del catálogo, para escuchar 
 - El usuario debe poder consultar qué canción está cargada en el reproductor.
 
 
-#### R.F.06. Creación de listas de reproducción
+#### R.F.05. Creación de listas de reproducción
 
 Como usuario registrado, quiero crear listas de reproducción con un nombre, para organizar las canciones según mis preferencias.
 
@@ -132,7 +132,7 @@ Como usuario registrado, quiero crear listas de reproducción con un nombre, par
 - Tras un intento de crear una lista con nombre vacío, la consulta de la colección no debe mostrar ninguna lista nueva.
 
 
-#### R.F.07. Añadir canciones a una lista de reproducción
+#### R.F.06. Añadir canciones a una lista de reproducción
 
 Como usuario registrado, quiero añadir canciones del catálogo a mis listas de reproducción, para reunir en ellas la música que me interesa.
 
@@ -147,7 +147,7 @@ Como usuario registrado, quiero añadir canciones del catálogo a mis listas de 
 - La consulta de las listas de otras cuentas no debe mostrar ningún cambio realizado por el usuario.
 
 
-#### R.F.08. Eliminar canciones de una lista de reproducción
+#### R.F.07. Eliminar canciones de una lista de reproducción
 
 Como usuario registrado, quiero eliminar canciones de mis listas de reproducción, para mantenerlas actualizadas según mis preferencias.
 
@@ -161,7 +161,7 @@ Como usuario registrado, quiero eliminar canciones de mis listas de reproducció
 - La consulta de las listas de otras cuentas debe mostrar su contenido sin cambios.
 
 
-### R.F.09. Modificación y eliminación de listas de reproducción
+### R.F.08. Modificación y eliminación de listas de reproducción
 
 Como usuario registrado, quiero cambiar el nombre de mis listas de reproducción o eliminarlas, para mantener organizada mi colección musical.
 
@@ -175,7 +175,7 @@ Como usuario registrado, quiero cambiar el nombre de mis listas de reproducción
 - La consulta del catálogo no debe modificar ningún dato.
 
 
-#### R.F.10. Cierre de sesión
+#### R.F.09. Cierre de sesión
 
 Como usuario autenticado, quiero cerrar sesión, para finalizar mi acceso a la cuenta de forma segura.
 
