@@ -242,7 +242,25 @@ Como gestor de la aplicación, quiero que sea intuitiva y sencilla de navegar, y
 
 ### 5.2. Escenarios de prueba
 
-- con descripción textual y diagrama de objetos UML.
+Para validar el modelo se definen los siguientes escenarios de instanciación con sus respectivos diagramas de objetos. Cada escenario indica los requisitos que ejercita. En los diagramas, las líneas discontinuas marcadas con ✖ representan enlaces que el modelo **no permite** crear y los objetos en rojo son instancias rechazadas.
+
+#### ESCENARIO DE PRUEBA EP-01: Creación de una lista y adición de canciones
+
+**Requisitos ejercitados:** R.F.05, R.F.06, R.N.04, R.N.05, R.N.06, R.N.10
+
+**Objetivo:** Comprobar que un usuario con sesión iniciada puede crear una lista con nombre válido y añadirle canciones habilitadas del catálogo.
+
+**Descripción textual:** La usuaria **ana** (sesión activa) crea la lista «Para correr». A continuación añade dos canciones habilitadas del catálogo, interpretadas por la artista **Lumen**. El sistema acepta ambas operaciones y la lista queda asociada a su única propietaria.
+
+**Objetos involucrados:**
+
+- `u1:Usuario` (nombreUsuario="ana", sesionActiva=true)
+- `l1:ListaReproduccion` (nombre="Para correr", numCanciones=2)
+- `c1:Cancion` (titulo="Tema A", habilitada=true)
+- `c2:Cancion` (titulo="Tema B", habilitada=true)
+- `ar1:Artista` (nombreArtistico="Lumen") vinculada a `c1` y `c2`
+
+![Diagrama de objetos EP-01](img/ep-1.png)
 
 ## 6. Matrices de trazabilidad
 
