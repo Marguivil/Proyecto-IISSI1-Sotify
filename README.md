@@ -262,6 +262,83 @@ Para validar el modelo se definen los siguientes escenarios de instanciación co
 
 ![Diagrama de objetos EP-01](img/ep1.png)
 
+#### ESCENARIO DE PRUEBA EP-02: Rechazo de lista con nombre vacío
+
+**Requisitos ejercitados:** R.F.05, R.F.07, R.N.07
+
+**Objetivo:** Verificar que la regla de negocio R.N.07 impide crear una lista cuyo nombre esté vacío o formado solo por espacios.
+
+**Descripción textual:** La usuaria **ana** intenta crear una lista y escribe únicamente espacios en blanco como nombre. El sistema rechaza la operación, no se instancia la lista y la colección de ana permanece sin cambios.
+
+**Objetos involucrados:**
+
+- `u1:Usuario` (nombreUsuario="ana", sesionActiva=true)
+- `l2:ListaReproduccion` (nombre="   ") -> **NO SE CREA**
+
+![Diagrama de objetos EP-02](img/ep2.png)
+
+#### ESCENARIO DE PRUEBA EP-03: Bloqueo de modificación de una lista ajena
+
+**Requisitos ejercitados:** R.F.06, R.N.06, R.N.08
+
+**Objetivo:** Verificar que un usuario no puede añadir ni eliminar canciones de una lista de la que no es propietario.
+
+**Descripción textual:** El usuario **beto** (sesión activa) intenta añadir la canción «Tema C» a la lista «Para correr», cuya propietaria es **ana**. El sistema detecta que beto no es el propietario, rechaza la operación y la lista conserva su contenido.
+
+**Objetos involucrados:**
+
+- `u1:Usuario` (nombreUsuario="ana")
+- `u2:Usuario` (nombreUsuario="beto", sesionActiva=true)
+- `l1:ListaReproduccion` (nombre="Para correr", numCanciones=2) propiedad de `u1`
+- `c3:Cancion` (titulo="Tema C", habilitada=true)
+- Intento de enlace `l1` – `c3` por `u2` -> **BLOQUEADO**
+
+![Diagrama de objetos EP-03](img/ep3.png)
+
+ESCENARIO DE PRUEBA EP-04: Registro con correo electrónico duplicado
+Requisitos ejercitados: R.I.02, R.N.01, R.N.02
+Objetivo: Comprobar que no pueden coexistir dos cuentas con el mismo correo electrónico.
+Descripción textual: Existe la cuenta de ana con el correo ana@mail.com. Una persona intenta registrar otra cuenta («ana2») con ese mismo correo. El sistema rechaza el registro y no crea la segunda cuenta.
+Objetos involucrados:
+u1:Usuario (nombreUsuario="ana", correo="ana@mail.com")
+u3:Usuario (nombreUsuario="ana2", correo="ana@mail.com") -> NO SE CREA
+
+[Diagrama de objetos EP-04](img/ep4.png)
+
+#### ESCENARIO DE PRUEBA EP-05: Eliminar una canción de una lista no la borra del catálogo
+
+**Requisitos ejercitados:** R.F.06, R.N.09, R.N.10
+
+**Objetivo:** Comprobar que quitar una canción de una lista elimina solo el enlace, sin afectar al catálogo ni a otras listas.
+
+**Descripción textual:** La usuaria **ana** tiene la lista «Para correr» con «Tema A» y «Tema B», y otra lista «Favoritas de ana» que también contiene «Tema B». Elimina «Tema B» de «Para correr». La canción deja de aparecer en esa lista, pero sigue existiendo en el catálogo y en «Favoritas de ana».
+
+**Objetos involucrados:**
+
+- `u1:Usuario` (nombreUsuario="ana", sesionActiva=true)
+- `l1:ListaReproduccion` (nombre="Para correr", numCanciones=1)
+- `l5:ListaReproduccion` (nombre="Favoritas de ana")
+- `c1:Cancion` ("Tema A") y `c2:Cancion` ("Tema B")
+- Enlace `l1` – `c2` -> **ELIMINADO**; `c2` sigue enlazada con `l5`
+
+![Diagrama de objetos EP-05](img/ep5.png)
+
+#### ESCENARIO DE PRUEBA EP-06: Canción no habilitada no reproducible
+
+**Requisitos ejercitados:** R.F.04, R.N.05
+
+**Objetivo:** Verificar que solo se reproducen las canciones registradas y habilitadas en el catálogo.
+
+**Descripción textual:** La usuaria **ana** selecciona la canción «Tema D», que está marcada como no habilitada. El sistema no inicia la reproducción e informa a la usuaria de que la canción no está disponible.
+
+**Objetos involucrados:**
+
+- `u1:Usuario` (nombreUsuario="ana", sesionActiva=true)
+- `c4:Cancion` (titulo="Tema D", habilitada=false)
+- Intento de reproducción de `c4` -> **BLOQUEADO**
+
+![Diagrama de objetos EP-06](img/ep6.png)
+
 ## 6. Matrices de trazabilidad
 
 - Matriz de trazabilidad entre los elementos del modelo conceptual y los requisitos.
