@@ -260,7 +260,7 @@ Para validar el modelo se definen los siguientes escenarios de instanciación co
 - `c2:Cancion` (titulo="Tema B", habilitada=true)
 - `ar1:Artista` (nombreArtistico="Lumen") vinculada a `c1` y `c2`
 
-![Diagrama de objetos EP-01](img/ep-1.png)
+![Diagrama de objetos EP-01](img/ep1.png)
 
 ## 6. Matrices de trazabilidad
 
