@@ -328,7 +328,7 @@ Descripción textual: La cliente **ana** tiene el correo ana.hermoso.martin@mail
 - `u1:Usuario` (nombreUsuario=ana", correo="ana@mail.com")
 - `u3:Usuario` (nombreUsuario="American Vives", correo="ana@mail.com") -> **NO SE CREA**
 
-[Diagrama de objetos EP-04](img/ep04.png)
+![Diagrama de objetos EP-04](img/ep04.png)
 
 ---
 
@@ -340,7 +340,7 @@ Descripción textual: La cliente **ana** tiene el correo ana.hermoso.martin@mail
 
 **Objetos involucrados:**
 
-- `u1:Usuario` (nombreUsuario="ana", sesionActiva=true)
+- `u1:Usuario` (nombreUsuario="ana")
 - `l1:ListaReproduccion` (nombre="Para correr", numCanciones=1)
 - `l5:ListaReproduccion` (nombre="Favoritas de ana")
 - `c1:Cancion` ("Tema A") y `c2:Cancion` ("Tema B")
