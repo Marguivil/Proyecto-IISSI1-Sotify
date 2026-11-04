@@ -352,17 +352,87 @@ Descripción textual: La cliente **Ana** tiene el correo ana.hermoso.martin@mail
 
 ## 6. Matrices de trazabilidad
 
-- Matriz de trazabilidad entre los elementos del modelo conceptual y los requisitos.
+- Matriz de trazabilidad entre los elementos del modelo conceptual y los requisitos funcionales.
+  **ENTIDADES**
+|           | Usuario | Admin | Cliente | Artista | ListaRep | Album | Cancion | Genero |
+|:----------|:-------:|:-----:|:-------:|:-------:|:--------:|:-----:|:-------:|:------:|
+| RF-1      |    X    |       |         |         |          |       |         |        |
+| RF-2      |         |       |    X    |    X    |          |   X   |    X    |   X    |
+| RF-3      |         |       |    X    |    X    |          |   X   |    X    |   X    |
+| RF-4      |         |       |    X    |         |          |       |    X    |        |
+| RF-5      |         |       |    X    |         |    X     |       |         |        |
+| RF-6      |         |       |    X    |         |    X     |       |    X    |        |
+| RF-7      |         |       |    X    |         |    X     |       |         |        |
+| RF-8      |    X    |       |         |         |          |       |         |        |  
 
-|       | EntidadX   | AsociaciónX  | RestricciónX  | Entidad2 ...   | 
-|:------|:-----------|:-----------|:-----------|:-----------|
-| RI-1  | X          | X          | X          | X          |
-| RI-2  |            | X          |            | X          |
-| RF-1  |            | X          |            | X          |
-| RF-2  | X          |            | X          | X          |
-| RN-1  |            | X          |            |            |
-| RN-2  | X          | X          | X          |            |
-| ...   |            |            |            |            |
+  **RELACIONES**
+  
+|           | Crea | Escucha | Publica | Contiene | Es Agregado a | Tiene un |
+|:----------|:----:|:-------:|:-------:|:--------:|:-------------:|:--------:|
+| RF-1      |      |         |         |          |               |          |
+| RF-2      |      |         |    X    |    X     |               |    X     |
+| RF-3      |      |         |    X    |    X     |               |    X     |
+| RF-4      |      |    X    |         |          |               |          |
+| RF-5      |  X   |         |         |          |               |          |
+| RF-6      |  X   |         |         |          |       X       |          |
+| RF-7      |  X   |         |         |          |               |          |
+| RF-8      |      |         |         |          |               |          |
+
+- Matriz de trazabilidad entre los elementos del modelo conceptual y los requisitos de información.
+  **ENTIDADES**
+  
+|           | Usuario | Admin | Cliente | Artista | ListaRep | Album | Cancion | Genero |
+|:----------|:-------:|:-----:|:-------:|:-------:|:--------:|:-----:|:-------:|:------:|
+| RI-01     |         |       |         |    X    |          |   X   |    X    |   X    |
+| RI-02     |    X    |   X   |    X    |         |          |       |         |        |
+| RI-03     |         |       |         |    X    |          |   X   |    X    |        |
+| RI-04     |         |       |         |    X    |          |   X   |         |        |
+| RI-05     |         |       |    X    |         |    X     |       |    X    |        |
+| RI-06     |         |       |    X    |         |          |       |    X    |        |
+
+  **RELACIONES**
+  
+|           | Crea | Escucha | Publica | Contiene | Es Agregado a | Tiene un |
+|:----------|:----:|:-------:|:-------:|:--------:|:-------------:|:--------:|
+| RI-01     |      |         |    X    |    X     |               |    X     |
+| RI-02     |      |         |         |          |               |          |
+| RI-03     |      |         |    X    |    X     |               |          |
+| RI-04     |      |         |    X    |          |               |          |
+| RI-05     |  X   |         |         |          |       X       |          |
+| RI-06     |      |    X    |         |          |               |          |
+
+- Matriz de trazabilidad entre los elementos del modelo conceptual y las reglas de negocio.
+  **ENTIDADES**
+  
+|           | Usuario | Admin | Cliente | Artista | ListaRep | Album | Cancion | Genero |
+|:----------|:-------:|:-----:|:-------:|:-------:|:--------:|:-----:|:-------:|:------:|
+| RN-01     |    X    |       |         |         |          |       |         |        |
+| RN-02     |    X    |       |         |         |          |       |         |        |
+| RN-03     |    X    |       |         |         |          |       |         |        |
+| RN-04     |         |       |    X    |         |    X     |       |         |        |
+| RN-05     |         |       |         |         |          |       |    X    |        |
+| RN-06     |         |       |    X    |         |    X     |       |         |        |
+| RN-07     |         |       |         |         |    X     |       |         |        |
+| RN-08     |         |       |    X    |         |    X     |       |         |        |
+| RN-09     |         |       |         |         |    X     |       |    X    |        |
+| RN-10     |         |       |    X    |         |    X     |   X   |    X    |        |
+| RN-11     |         |       |    X    |         |    X     |       |    X    |        |
+
+  **RELACIONES**
+  
+|           | Crea | Escucha | Publica | Contiene | Es Agregado a | Tiene un |
+|:----------|:----:|:-------:|:-------:|:--------:|:-------------:|:--------:|
+| RN-01     |      |         |         |          |               |          |
+| RN-02     |      |         |         |          |               |          |
+| RN-03     |      |         |         |          |               |          |
+| RN-04     |  X   |         |         |          |               |          |
+| RN-05     |      |         |         |          |               |          |
+| RN-06     |  X   |         |         |          |               |          |
+| RN-07     |      |         |         |          |               |          |
+| RN-08     |  X   |         |         |          |               |          |
+| RN-09     |      |         |         |          |       X       |          |
+| RN-10     |  X   |         |    X    |    X     |       X       |          |
+| RN-11     |  X   |         |         |          |       X       |          |
 
 -- fin entregable 2 --
 
