@@ -280,7 +280,7 @@ Para validar el modelo se definen los siguientes escenarios de instanciación co
 - `c1:Cancion` (titulo="Poker Face")
 - `ar1:Artista` (nombreArtistico="Lady Gaga") vinculada a `c1` y `c2`
 
-![Diagrama de objetos EP-01](img/ep1.png)
+![Diagrama de objetos EP-01](img/ep01.png)
 
 ---
 
@@ -295,7 +295,7 @@ Para validar el modelo se definen los siguientes escenarios de instanciación co
 - `u1:Usuario` (nombreUsuario="Ana")
 - `l2:ListaReproduccion` (nombre="   ") -> **NO SE CREA**
 
-![Diagrama de objetos EP-02](img/ep2.png)
+![Diagrama de objetos EP-02](img/ep02.png)
 
 ---
 
@@ -313,11 +313,11 @@ Para validar el modelo se definen los siguientes escenarios de instanciación co
 - `c3:Cancion` (titulo="Tema C", habilitada=true)
 - Intento de enlace `l1` – `c3` por `u2` -> **BLOQUEADO**
 
-![Diagrama de objetos EP-03](img/ep3.png)
+![Diagrama de objetos EP-03](img/ep03.png)
 
 ---
 
-ESCENARIO DE PRUEBA EP-04: Registro con correo electrónico duplicado
+#### ESCENARIO DE PRUEBA EP-04: Registro con correo electrónico duplicado
 
 Objetivo: Comprobar que no pueden coexistir dos cuentas con el mismo correo electrónico.
 
@@ -328,7 +328,7 @@ Descripción textual: La cliente **Ana** tiene el correo ana.hermoso.martin@mail
 - `u1:Usuario` (nombreUsuario="Ana", correo="ana.hermoso.martin@mail.com")
 - `u3:Usuario` (nombreUsuario="American Vives", correo="ana.hermoso.martin@mail.com") -> **NO SE CREA**
 
-[Diagrama de objetos EP-04](img/ep4.png)
+[Diagrama de objetos EP-04](img/ep04.png)
 
 ---
 
@@ -346,9 +346,23 @@ Descripción textual: La cliente **Ana** tiene el correo ana.hermoso.martin@mail
 - `c1:Cancion` ("Tema A") y `c2:Cancion` ("Tema B")
 - Enlace `l1` – `c2` -> **ELIMINADO**; `c2` sigue enlazada con `l5`
 
-![Diagrama de objetos EP-05](img/ep5.png)
+![Diagrama de objetos EP-05](img/ep05.png)
 
----
+#### ESCENARIO DE PRUEBA EP-06: Canción no habilitada no reproducible
+
+**Requisitos ejercitados:** R.F.04, R.N.05
+
+**Objetivo:** Verificar que solo se reproducen las canciones registradas y habilitadas en el catálogo.
+
+**Descripción textual:** La usuaria **ana** selecciona la canción «Paparazzi», que está marcada como no habilitada. El sistema no inicia la reproducción e informa a la usuaria de que la canción no está disponible.
+
+**Objetos involucrados:**
+
+- `u1:Usuario` (nombreUsuario="ana")
+- `c4:Cancion` (titulo="Paparazzi", habilitada=false)
+- Intento de reproducción de `c4` -> **BLOQUEADO**
+
+![Diagrama de objetos EP-06](img/ep06.png)
 
 ## 6. Matrices de trazabilidad
 
