@@ -276,8 +276,8 @@ Para validar el modelo se definen los siguientes escenarios de instanciación co
 
 - `u1:Usuario` (nombreUsuario="Ana", sesionActiva=true)
 - `l1:ListaReproduccion` (nombre="Para correr", numCanciones=2)
-- `c1:Cancion` (titulo="Bad Romance")
-- `c2:Cancion` (titulo="Poker Face")
+- `c2:Cancion` (titulo="Bad Romance")
+- `c1:Cancion` (titulo="Poker Face")
 - `ar1:Artista` (nombreArtistico="Lady Gaga") vinculada a `c1` y `c2`
 
 ![Diagrama de objetos EP-01](img/ep1.png)
