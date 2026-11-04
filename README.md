@@ -270,11 +270,11 @@ Para validar el modelo se definen los siguientes escenarios de instanciación co
 
 **Objetivo:** Comprobar que un usuario con sesión iniciada puede crear una lista con nombre válido y añadirle canciones habilitadas del catálogo.
 
-**Descripción textual:** La clienta **Ana** crea la lista de reproducción «Para correr». A continuación añade dos canciones habilitadas del catálogo, interpretadas por la artista **Lady Gaga**. El sistema acepta ambas operaciones y la lista queda asociada a su única propietaria.
+**Descripción textual:** La clienta **ana** crea la lista de reproducción «Para correr». A continuación añade dos canciones habilitadas del catálogo, interpretadas por la artista **Lady Gaga**. El sistema acepta ambas operaciones y la lista queda asociada a su única propietaria.
 
 **Objetos involucrados:**
 
-- `u1:Usuario` (nombreUsuario="Ana", sesionActiva=true)
+- `u1:Usuario` (nombreUsuario="ana")
 - `l1:ListaReproduccion` (nombre="Para correr", numCanciones=2)
 - `c2:Cancion` (titulo="Bad Romance")
 - `c1:Cancion` (titulo="Poker Face")
@@ -288,11 +288,11 @@ Para validar el modelo se definen los siguientes escenarios de instanciación co
 
 **Objetivo:** Verificar que la regla de negocio *R.N.07* impide crear una lista cuyo nombre esté vacío o formado solo por espacios.
 
-**Descripción textual:** La usuaria **Ana** intenta crear una lista y escribe únicamente espacios en blanco como nombre. El sistema rechaza la operación, no se instancia la lista y la colección de Ana permanece sin cambios.
+**Descripción textual:** La usuaria **ana** intenta crear una lista y escribe únicamente espacios en blanco como nombre. El sistema rechaza la operación, no se instancia la lista y la colección de Ana permanece sin cambios.
 
 **Objetos involucrados:**
 
-- `u1:Usuario` (nombreUsuario="Ana")
+- `u1:Usuario` (nombreUsuario="ana")
 - `l2:ListaReproduccion` (nombre="   ") -> **NO SE CREA**
 
 ![Diagrama de objetos EP-02](img/ep02.png)
@@ -303,14 +303,14 @@ Para validar el modelo se definen los siguientes escenarios de instanciación co
 
 **Objetivo:** Verificar que un usuario no puede añadir ni eliminar canciones de una lista de la que no es propietario.
 
-**Descripción textual:** El usuario **Rubén** intenta añadir la canción «Love You Like A Song» a la lista «Para correr», cuya propietaria es **Ana**. El sistema detecta que Rubén no es el propietario, rechaza la operación y la lista conserva su contenido.
+**Descripción textual:** El usuario **beto** intenta añadir la canción «Just Danceg» a la lista «Para correr», cuya propietaria es **ana**. El sistema detecta que Rubén no es el propietario, rechaza la operación y la lista conserva su contenido.
 
 **Objetos involucrados:**
 
-- `u1:Usuario` (nombreUsuario="Ana")
-- `u2:Usuario` (nombreUsuario="Rubén")
+- `u1:Usuario` (nombreUsuario="ana")
+- `u2:Usuario` (nombreUsuario="beto")
 - `l1:ListaReproduccion` (nombre="Para correr", numCanciones=2) propiedad de `u1`
-- `c3:Cancion` (titulo="Tema C", habilitada=true)
+- `c3:Cancion` (titulo="Just Dance", habilitada=true)
 - Intento de enlace `l1` – `c3` por `u2` -> **BLOQUEADO**
 
 ![Diagrama de objetos EP-03](img/ep03.png)
@@ -321,12 +321,12 @@ Para validar el modelo se definen los siguientes escenarios de instanciación co
 
 Objetivo: Comprobar que no pueden coexistir dos cuentas con el mismo correo electrónico.
 
-Descripción textual: La cliente **Ana** tiene el correo ana.hermoso.martin@mail.com. A Ana se le olvida que tenía una cuenta en Sotify e intenta registrarse de nuevo en el sistema con el mismo correo y contraseña pero distinto nombre (**American Vibes**). El sistema rechaza el registro y no crea la segunda cuenta.
+Descripción textual: La cliente **ana** tiene el correo ana.hermoso.martin@mail.com. A Ana se le olvida que tenía una cuenta en Sotify e intenta registrarse de nuevo en el sistema con el mismo correo y contraseña pero distinto nombre (**American Vibes**). El sistema rechaza el registro y no crea la segunda cuenta.
 
 **Objetos involucrados:**
 
-- `u1:Usuario` (nombreUsuario="Ana", correo="ana.hermoso.martin@mail.com")
-- `u3:Usuario` (nombreUsuario="American Vives", correo="ana.hermoso.martin@mail.com") -> **NO SE CREA**
+- `u1:Usuario` (nombreUsuario=ana", correo="ana@mail.com")
+- `u3:Usuario` (nombreUsuario="American Vives", correo="ana@mail.com") -> **NO SE CREA**
 
 [Diagrama de objetos EP-04](img/ep04.png)
 
@@ -336,13 +336,13 @@ Descripción textual: La cliente **Ana** tiene el correo ana.hermoso.martin@mail
 
 **Objetivo:** Comprobar que quitar una canción de una lista elimina solo el enlace, sin afectar al catálogo ni a otras listas.
 
-**Descripción textual:** La usuaria **Ana** tiene la lista «Para correr» con «Bad Romance» y «Poker Face», y otra lista «Favoritas de Ana» que también contiene «Poker Face». Elimina «Poker Face» de «Para correr». La canción deja de aparecer en esa lista, pero sigue existiendo en el catálogo y en «Favoritas de Ana».
+**Descripción textual:** La usuaria **ana** tiene la lista «Para correr» con «Bad Romance» y «Poker Face», y otra lista «Favoritas de Ana» que también contiene «Poker Face». Elimina «Poker Face» de «Para correr». La canción deja de aparecer en esa lista, pero sigue existiendo en el catálogo y en «Favoritas de Ana».
 
 **Objetos involucrados:**
 
-- `u1:Usuario` (nombreUsuario="Ana", sesionActiva=true)
+- `u1:Usuario` (nombreUsuario="ana", sesionActiva=true)
 - `l1:ListaReproduccion` (nombre="Para correr", numCanciones=1)
-- `l5:ListaReproduccion` (nombre="Favoritas de Ana")
+- `l5:ListaReproduccion` (nombre="Favoritas de ana")
 - `c1:Cancion` ("Tema A") y `c2:Cancion` ("Tema B")
 - Enlace `l1` – `c2` -> **ELIMINADO**; `c2` sigue enlazada con `l5`
 
