@@ -7,6 +7,8 @@
 3. Redondo Rosco, Diana
 4. Barbero Luna, Alvaro
 
+---
+
 ## 1. Introducción al problema
 
 Spotify ha caido en una demanda por practicas monopolisticas por la CNMC (Comisión Nacional de los Mercados y la Competencia) y actualmente se encuentra inoperativa. Para ello, la empresa de Spotify decide partir la empresa en dos. Una parte con Spotify o otra con Sotify, la alternativa antimonopolio que ha ofrecido la CNMC. El proyecto consiste en diseñar la aplicación de streaming musical junto con su base de datos que permita organizar y gestionar la información de manera eficiente (incluso mejor que la original).
@@ -17,6 +19,8 @@ La finalidad del proyecto es desarrollar un modelo de base de datos que represen
 
 ![Logo de Sotify](img/Sotify_Logo.png)
 *Logo de Sotify*
+
+---
 
 ## 2. Glosario de términos
 
@@ -48,6 +52,8 @@ Este glosario recoge los principales términos relacionados con el dominio del p
 
 **Modo aleatorio:** Funcionalidad que permite al usuario escuchar una lista de reproducción sin un orden definido
 
+---
+
 ## 3. Visión general del sistema
 
 ### 3.1. Requisitos generales
@@ -56,11 +62,14 @@ Este glosario recoge los principales términos relacionados con el dominio del p
 * **Gestión de listas de reproducción personales**: la aplicación permitirá crear de listas personales por los usuarios para almacenar canciones de álbumes (sea una o varias). También se podría almacenar el álbum entero, añadiendo todas las canciones dentro de la lista.
 * **Gestión de control de reproducción multimedia**: la aplicación podrá reproducir el contenido multimedia, pudiendo iniciar y pausar canciones. Además, también se podrá adelantar a la siguiente canción o retroceder a la anterior.
 
+
 ### 3.2. Usuarios del sistema
 
 * **Usuario**: usuario registrado dentro de la aplicación, haciendo uso de la misma. El usuario puede buscar contenido en el catálogo, reproducir y pausar canciones, y gestionar sus propias listas de reproducción personales.
 * **Administrador**: responsable de la aplicación con la capacidad de realizar las acciones CRUD de todo el contenido (música, álbumes, listas, artistas y usuarios.
 * **Artista**: usuario de tipo especial con la capacidad de crear contenido multimedia (música y álbumes), además de las capacidades de un usuario básico, es decir, pudiendo reproducir música y crear listas personales.
+
+---
 
 ## 4. Catálogo de requisitos
 
@@ -121,14 +130,14 @@ Este glosario recoge los principales términos relacionados con el dominio del p
 * **Prueba de aceptación:** El sistema permite renombrar una lista propia, pero no guardar un nombre vacío. Antes de eliminar una lista solicita confirmación; tras confirmarla, la lista deja de aparecer en la cuenta del usuario. El usuario no puede modificar ni eliminar listas de otras cuentas.
 
 
-#### R.F.08. Cierre de sesión####
+#### R.F.08. Cierre de sesión
 
 * **Como:** Usuario autenticado
 * **Quiero:** Cerrar sesión.
 * **Para:** Finalizar mi acceso a la cuenta de forma segura.
 * **Prueba de aceptación:** El sistema ofrece una opción de cerrar sesión. Tras usarla, el usuario deja de tener acceso a las funcionalidades que requieren autenticación y debe iniciar sesión de nuevo para volver a acceder.
 
-
+---
   
 ### 4.1.1. Requisitos de información
 
@@ -136,30 +145,32 @@ Este glosario recoge los principales términos relacionados con el dominio del p
 
 Como gestor de la aplicación, quiero disponer de la información correspondiente a cada canción del catálogo, incluyendo título, duración, artistas participantes, fecha de lanzamiento, letra, álbum al que pertenece y número de reproducciones, para mantenerla actualizada
 
+
 ##### R.I.02. Información sobre usuarios
 
 Como gestor de la aplicación, quiero almacenar la siguiente información correspondiente a los usuarios registrados: nombre de usuario, correo electrónico, contraseña y fecha de nacimiento, para poder gestionarlos correctamente y mejorar su experiencia
+
 
 ##### R.I.03. Información sobre álbumes
 
 Como gestor de la aplicación, quiero disponer de la información sobre el título, los artistas participantes, la portada y la fecha de lanzamiento de los álbumes, para poder gestionarlos dentro de la aplicación
 
+
 ##### R.I.04. Información sobre artistas
 
 Como gestor de la aplicación, quiero almacenar la siguiente información sobre los artistas: nombre, nombre artístico, país, número de canciones, número de álbumes y número total de reproducciones
+
 
 ##### R.I.05. Información sobre listas de reproducción
 
 Como gestor de la aplicación, quiero disponer de la información sobre el nombre, la cantidad de canciones incluidas, el creador de la lista y las canciones que contiene cada lista de reproducción, para poder gestionar las listas
 
+
 ##### R.I.06. Información sobre favoritos
 
 Como gestor de la aplicación, quiero disponer de la información correspondiente a las canciones marcadas como favoritos, como el título, el usuario que la ha marcado como favorito, y la lista completa de canciones marcadas como favorito por un mismo usuario, para poder crear una lista de reproducción con las canciones favoritas de cada usuario
 
-##### R.I.01. Información sobre canciones
-
-
-
+---
 
 ### 4.1.2. Reglas de negocio
 
@@ -167,41 +178,51 @@ Como gestor de la aplicación, quiero disponer de la información correspondient
 
 Cada cuenta de usuario debe estar asociada a una dirección de correo electrónico única. No se permitirá registrar dos cuentas con la misma dirección de correo electrónico.
 
+
 ##### R.N.02. Validación de los datos de registro
 
 Para crear una cuenta, el usuario debe proporcionar todos los datos obligatorios y una dirección de correo electrónico con formato válido. La contraseña debe cumplir las condiciones de seguridad establecidas para la aplicación.
+
 
 ##### R.N.03. Protección de las credenciales
 
 Las contraseñas de los usuarios no deben almacenarse en texto plano. El sistema debe utilizar un mecanismo seguro de almacenamiento de contraseñas y comprobar las credenciales durante el inicio de sesión.
 
+
 ##### R.N.04. Autenticación para operaciones personales
 
 Las operaciones de creación, modificación y eliminación de listas de reproducción requieren que el usuario haya iniciado sesión. El sistema debe verificar la identidad del usuario antes de permitir estas operaciones.
+
 
 ##### R.N.05. Disponibilidad del contenido musical
 
 Solo podrán consultarse y reproducirse como contenido disponible las canciones que estén registradas en el catálogo y habilitadas para su reproducción.
 
+
 ##### R.N.06. Propiedad de las listas de reproducción
 
 Cada lista de reproducción debe estar asociada a un único usuario propietario. El usuario propietario será el responsable de gestionar el nombre de la lista y las canciones que contiene.
+
 
 ##### R.N.07. Validez del nombre de una lista
 
 Toda lista de reproducción debe tener un nombre no vacío. No se permitirá crear una lista ni modificar su nombre utilizando únicamente espacios en blanco.
 
+
 ##### R.N.08. Control de acceso a las listas
 
 Un usuario solo podrá modificar o eliminar las listas de reproducción de las que sea propietario. Tampoco podrá añadir o eliminar canciones de listas pertenecientes a otros usuarios.
+
 
 ##### R.N.09. Integridad del catálogo musical
 
 Eliminar una canción de una lista de reproducción no debe eliminar la canción del catálogo musical. La canción debe seguir disponible para otros usuarios y para otras listas, siempre que continúe habilitada en el catálogo.
 
+
 ##### R.N.10. Integridad de las relaciones entre datos
 
 Toda lista de reproducción debe estar asociada a un usuario existente, y toda canción incluida en una lista debe existir en el catálogo musical. El sistema no debe permitir relaciones que hagan referencia a usuarios, listas o canciones inexistentes.
+
 
 ##### R.N.11. Conservación de la información personal
 
@@ -210,7 +231,7 @@ Las listas de reproducción y sus asociaciones con las canciones deben manteners
 ### 4.2. Mapa de historias de usuario (opcional)
 <img width="1651" height="525" alt="image" src="https://github.com/user-attachments/assets/657aeab3-bc3f-414b-800d-e63115f4fc3c" />
 
-
+---
 
 ### 4.3. Requisitos no funcionales (opcional)
 
@@ -232,7 +253,7 @@ Como gestor de la aplicación, quiero que garantice que los datos del usuario (l
 **R.N.F. 06. Facilidad de uso**
 Como gestor de la aplicación, quiero que sea intuitiva y sencilla de navegar, y que los usuarios puedan encontrar lo que busquen sin complicaciones
 
--- fin entregable 1 --
+---
 
 ## 5. Modelo conceptual
 
@@ -244,102 +265,90 @@ Como gestor de la aplicación, quiero que sea intuitiva y sencilla de navegar, y
 
 Para validar el modelo se definen los siguientes escenarios de instanciación con sus respectivos diagramas de objetos. Cada escenario indica los requisitos que ejercita. En los diagramas, las líneas discontinuas marcadas con ✖ representan enlaces que el modelo **no permite** crear y los objetos en rojo son instancias rechazadas.
 
-#### ESCENARIO DE PRUEBA EP-01: Creación de una lista y adición de canciones
 
-**Requisitos ejercitados:** R.F.05, R.F.06, R.N.04, R.N.05, R.N.06, R.N.10
+#### ESCENARIO DE PRUEBA EP-01: Creación de una lista y adición de canciones
 
 **Objetivo:** Comprobar que un usuario con sesión iniciada puede crear una lista con nombre válido y añadirle canciones habilitadas del catálogo.
 
-**Descripción textual:** La usuaria **ana** (sesión activa) crea la lista «Para correr». A continuación añade dos canciones habilitadas del catálogo, interpretadas por la artista **Lumen**. El sistema acepta ambas operaciones y la lista queda asociada a su única propietaria.
+**Descripción textual:** La clienta **Ana** crea la lista de reproducción «Para correr». A continuación añade dos canciones habilitadas del catálogo, interpretadas por la artista **Lady Gaga**. El sistema acepta ambas operaciones y la lista queda asociada a su única propietaria.
 
 **Objetos involucrados:**
 
-- `u1:Usuario` (nombreUsuario="ana", sesionActiva=true)
+- `u1:Usuario` (nombreUsuario="Ana", sesionActiva=true)
 - `l1:ListaReproduccion` (nombre="Para correr", numCanciones=2)
-- `c1:Cancion` (titulo="Tema A", habilitada=true)
-- `c2:Cancion` (titulo="Tema B", habilitada=true)
-- `ar1:Artista` (nombreArtistico="Lumen") vinculada a `c1` y `c2`
+- `c1:Cancion` (titulo="Bad Romance")
+- `c2:Cancion` (titulo="Poker Face")
+- `ar1:Artista` (nombreArtistico="Lady Gaga") vinculada a `c1` y `c2`
 
 ![Diagrama de objetos EP-01](img/ep1.png)
 
+---
+
 #### ESCENARIO DE PRUEBA EP-02: Rechazo de lista con nombre vacío
 
-**Requisitos ejercitados:** R.F.05, R.F.07, R.N.07
+**Objetivo:** Verificar que la regla de negocio *R.N.07* impide crear una lista cuyo nombre esté vacío o formado solo por espacios.
 
-**Objetivo:** Verificar que la regla de negocio R.N.07 impide crear una lista cuyo nombre esté vacío o formado solo por espacios.
-
-**Descripción textual:** La usuaria **ana** intenta crear una lista y escribe únicamente espacios en blanco como nombre. El sistema rechaza la operación, no se instancia la lista y la colección de ana permanece sin cambios.
+**Descripción textual:** La usuaria **Ana** intenta crear una lista y escribe únicamente espacios en blanco como nombre. El sistema rechaza la operación, no se instancia la lista y la colección de Ana permanece sin cambios.
 
 **Objetos involucrados:**
 
-- `u1:Usuario` (nombreUsuario="ana", sesionActiva=true)
+- `u1:Usuario` (nombreUsuario="Ana")
 - `l2:ListaReproduccion` (nombre="   ") -> **NO SE CREA**
 
 ![Diagrama de objetos EP-02](img/ep2.png)
 
-#### ESCENARIO DE PRUEBA EP-03: Bloqueo de modificación de una lista ajena
+---
 
-**Requisitos ejercitados:** R.F.06, R.N.06, R.N.08
+#### ESCENARIO DE PRUEBA EP-03: Bloqueo de modificación de una lista ajena
 
 **Objetivo:** Verificar que un usuario no puede añadir ni eliminar canciones de una lista de la que no es propietario.
 
-**Descripción textual:** El usuario **beto** (sesión activa) intenta añadir la canción «Tema C» a la lista «Para correr», cuya propietaria es **ana**. El sistema detecta que beto no es el propietario, rechaza la operación y la lista conserva su contenido.
+**Descripción textual:** El usuario **Rubén** intenta añadir la canción «Love You Like A Song» a la lista «Para correr», cuya propietaria es **Ana**. El sistema detecta que Rubén no es el propietario, rechaza la operación y la lista conserva su contenido.
 
 **Objetos involucrados:**
 
-- `u1:Usuario` (nombreUsuario="ana")
-- `u2:Usuario` (nombreUsuario="beto", sesionActiva=true)
+- `u1:Usuario` (nombreUsuario="Ana")
+- `u2:Usuario` (nombreUsuario="Rubén")
 - `l1:ListaReproduccion` (nombre="Para correr", numCanciones=2) propiedad de `u1`
 - `c3:Cancion` (titulo="Tema C", habilitada=true)
 - Intento de enlace `l1` – `c3` por `u2` -> **BLOQUEADO**
 
 ![Diagrama de objetos EP-03](img/ep3.png)
 
+---
+
 ESCENARIO DE PRUEBA EP-04: Registro con correo electrónico duplicado
-Requisitos ejercitados: R.I.02, R.N.01, R.N.02
+
 Objetivo: Comprobar que no pueden coexistir dos cuentas con el mismo correo electrónico.
-Descripción textual: Existe la cuenta de ana con el correo ana@mail.com. Una persona intenta registrar otra cuenta («ana2») con ese mismo correo. El sistema rechaza el registro y no crea la segunda cuenta.
-Objetos involucrados:
-u1:Usuario (nombreUsuario="ana", correo="ana@mail.com")
-u3:Usuario (nombreUsuario="ana2", correo="ana@mail.com") -> NO SE CREA
 
-[Diagrama de objetos EP-04](img/ep4.png)
-
-#### ESCENARIO DE PRUEBA EP-05: Eliminar una canción de una lista no la borra del catálogo
-
-**Requisitos ejercitados:** R.F.06, R.N.09, R.N.10
-
-**Objetivo:** Comprobar que quitar una canción de una lista elimina solo el enlace, sin afectar al catálogo ni a otras listas.
-
-**Descripción textual:** La usuaria **ana** tiene la lista «Para correr» con «Tema A» y «Tema B», y otra lista «Favoritas de ana» que también contiene «Tema B». Elimina «Tema B» de «Para correr». La canción deja de aparecer en esa lista, pero sigue existiendo en el catálogo y en «Favoritas de ana».
+Descripción textual: La cliente **Ana** tiene el correo ana.hermoso.martin@mail.com. A Ana se le olvida que tenía una cuenta en Sotify e intenta registrarse de nuevo en el sistema con el mismo correo y contraseña pero distinto nombre (**American Vibes**). El sistema rechaza el registro y no crea la segunda cuenta.
 
 **Objetos involucrados:**
 
-- `u1:Usuario` (nombreUsuario="ana", sesionActiva=true)
+- `u1:Usuario` (nombreUsuario="Ana", correo="ana.hermoso.martin@mail.com")
+- `u3:Usuario` (nombreUsuario="American Vives", correo="ana.hermoso.martin@mail.com") -> **NO SE CREA**
+
+[Diagrama de objetos EP-04](img/ep4.png)
+
+---
+
+#### ESCENARIO DE PRUEBA EP-05: Eliminar una canción de una lista no la borra del catálogo
+
+**Objetivo:** Comprobar que quitar una canción de una lista elimina solo el enlace, sin afectar al catálogo ni a otras listas.
+
+**Descripción textual:** La usuaria **Ana** tiene la lista «Para correr» con «Bad Romance» y «Poker Face», y otra lista «Favoritas de Ana» que también contiene «Poker Face». Elimina «Poker Face» de «Para correr». La canción deja de aparecer en esa lista, pero sigue existiendo en el catálogo y en «Favoritas de Ana».
+
+**Objetos involucrados:**
+
+- `u1:Usuario` (nombreUsuario="Ana", sesionActiva=true)
 - `l1:ListaReproduccion` (nombre="Para correr", numCanciones=1)
-- `l5:ListaReproduccion` (nombre="Favoritas de ana")
+- `l5:ListaReproduccion` (nombre="Favoritas de Ana")
 - `c1:Cancion` ("Tema A") y `c2:Cancion` ("Tema B")
 - Enlace `l1` – `c2` -> **ELIMINADO**; `c2` sigue enlazada con `l5`
 
 ![Diagrama de objetos EP-05](img/ep5.png)
 
-#### ESCENARIO DE PRUEBA EP-06: Canción no habilitada no reproducible
-
-**Requisitos ejercitados:** R.F.04, R.N.05
-
-**Objetivo:** Verificar que solo se reproducen las canciones registradas y habilitadas en el catálogo.
-
-**Descripción textual:** La usuaria **ana** selecciona la canción «Tema D», que está marcada como no habilitada. El sistema no inicia la reproducción e informa a la usuaria de que la canción no está disponible.
-
-**Objetos involucrados:**
-
-- `u1:Usuario` (nombreUsuario="ana", sesionActiva=true)
-- `c4:Cancion` (titulo="Tema D", habilitada=false)
-- Intento de reproducción de `c4` -> **BLOQUEADO**
-
-![Diagrama de objetos EP-06](img/ep6.png)
-
-
+---
 
 ## 6. Matrices de trazabilidad
 
