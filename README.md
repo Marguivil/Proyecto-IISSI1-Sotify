@@ -258,7 +258,9 @@ Como gestor de la aplicación, quiero que sea intuitiva y sencilla de navegar, y
 ## 5. Modelo conceptual
 
 ### 5.1. Diagramas de clases UML
-![Modelado Conceptual](img/modelado.png)
+![Modelado Conceptual](![Uploading Modelado IISSI1.drawio (3).png…]()
+<img width="1095" height="1742" alt="Modelado IISSI1 drawio (3)" src="https://github.com/user-attachments/assets/75c810c5-46dd-4071-b66e-7d254b84cc52" />
+)
 
 
 ### 5.2. Escenarios de prueba
