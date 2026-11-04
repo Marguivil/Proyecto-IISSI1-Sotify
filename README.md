@@ -237,8 +237,8 @@ Como gestor de la aplicación, quiero que sea intuitiva y sencilla de navegar, y
 ## 5. Modelo conceptual
 
 ### 5.1. Diagramas de clases UML
-![Modelado Conceptual](img/WhatsApp Image 2026-11-04 at 17.50.22.jpeg)
-- con restricciones.
+![Modelado Conceptual](img/modelado.png)
+
 
 ### 5.2. Escenarios de prueba
 
