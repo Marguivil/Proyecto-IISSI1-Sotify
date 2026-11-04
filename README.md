@@ -237,7 +237,7 @@ Como gestor de la aplicación, quiero que sea intuitiva y sencilla de navegar, y
 ## 5. Modelo conceptual
 
 ### 5.1. Diagramas de clases UML
-
+![Modelado Conceptual](img/WhatsApp Image 2026-11-04 at 17.50.22.jpeg)
 - con restricciones.
 
 ### 5.2. Escenarios de prueba
@@ -338,6 +338,8 @@ u3:Usuario (nombreUsuario="ana2", correo="ana@mail.com") -> NO SE CREA
 - Intento de reproducción de `c4` -> **BLOQUEADO**
 
 ![Diagrama de objetos EP-06](img/ep6.png)
+
+
 
 ## 6. Matrices de trazabilidad
 
