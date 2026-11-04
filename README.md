@@ -303,7 +303,7 @@ Para validar el modelo se definen los siguientes escenarios de instanciación co
 
 **Objetivo:** Verificar que un usuario no puede añadir ni eliminar canciones de una lista de la que no es propietario.
 
-**Descripción textual:** El usuario **beto** intenta añadir la canción «Just Danceg» a la lista «Para correr», cuya propietaria es **ana**. El sistema detecta que Rubén no es el propietario, rechaza la operación y la lista conserva su contenido.
+**Descripción textual:** El usuario **beto** intenta añadir la canción «Just Danceg» a la lista «Para correr», cuya propietaria es **ana**. El sistema detecta que Beto no es el propietario, rechaza la operación y la lista conserva su contenido.
 
 **Objetos involucrados:**
 
