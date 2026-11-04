@@ -343,7 +343,7 @@ Descripción textual: La cliente **ana** tiene el correo ana.hermoso.martin@mail
 - `u1:Usuario` (nombreUsuario="ana")
 - `l1:ListaReproduccion` (nombre="Para correr", numCanciones=1)
 - `l5:ListaReproduccion` (nombre="Favoritas de ana")
-- `c1:Cancion` ("Tema A") y `c2:Cancion` ("Tema B")
+- `c1:Cancion` ("Poker Face") y `c2:Cancion` ("Bad Romance")
 - Enlace `l1` – `c2` -> **ELIMINADO**; `c2` sigue enlazada con `l5`
 
 ![Diagrama de objetos EP-05](img/ep05.png)
