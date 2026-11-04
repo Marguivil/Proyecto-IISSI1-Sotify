@@ -353,7 +353,7 @@ Descripción textual: La cliente **Ana** tiene el correo ana.hermoso.martin@mail
 ## 6. Matrices de trazabilidad
 
 - Matriz de trazabilidad entre los elementos del modelo conceptual y los requisitos funcionales.
-  **ENTIDADES**
+  
 |           | Usuario | Admin | Cliente | Artista | ListaRep | Album | Cancion | Genero |
 |:----------|:-------:|:-----:|:-------:|:-------:|:--------:|:-----:|:-------:|:------:|
 | RF-1      |    X    |       |         |         |          |       |         |        |
@@ -365,8 +365,6 @@ Descripción textual: La cliente **Ana** tiene el correo ana.hermoso.martin@mail
 | RF-7      |         |       |    X    |         |    X     |       |         |        |
 | RF-8      |    X    |       |         |         |          |       |         |        |  
 
-  **RELACIONES**
-  
 |           | Crea | Escucha | Publica | Contiene | Es Agregado a | Tiene un |
 |:----------|:----:|:-------:|:-------:|:--------:|:-------------:|:--------:|
 | RF-1      |      |         |         |          |               |          |
@@ -379,7 +377,6 @@ Descripción textual: La cliente **Ana** tiene el correo ana.hermoso.martin@mail
 | RF-8      |      |         |         |          |               |          |
 
 - Matriz de trazabilidad entre los elementos del modelo conceptual y los requisitos de información.
-  **ENTIDADES**
   
 |           | Usuario | Admin | Cliente | Artista | ListaRep | Album | Cancion | Genero |
 |:----------|:-------:|:-----:|:-------:|:-------:|:--------:|:-----:|:-------:|:------:|
@@ -389,8 +386,6 @@ Descripción textual: La cliente **Ana** tiene el correo ana.hermoso.martin@mail
 | RI-04     |         |       |         |    X    |          |   X   |         |        |
 | RI-05     |         |       |    X    |         |    X     |       |    X    |        |
 | RI-06     |         |       |    X    |         |          |       |    X    |        |
-
-  **RELACIONES**
   
 |           | Crea | Escucha | Publica | Contiene | Es Agregado a | Tiene un |
 |:----------|:----:|:-------:|:-------:|:--------:|:-------------:|:--------:|
@@ -402,7 +397,6 @@ Descripción textual: La cliente **Ana** tiene el correo ana.hermoso.martin@mail
 | RI-06     |      |    X    |         |          |               |          |
 
 - Matriz de trazabilidad entre los elementos del modelo conceptual y las reglas de negocio.
-  **ENTIDADES**
   
 |           | Usuario | Admin | Cliente | Artista | ListaRep | Album | Cancion | Genero |
 |:----------|:-------:|:-----:|:-------:|:-------:|:--------:|:-----:|:-------:|:------:|
@@ -417,8 +411,6 @@ Descripción textual: La cliente **Ana** tiene el correo ana.hermoso.martin@mail
 | RN-09     |         |       |         |         |    X     |       |    X    |        |
 | RN-10     |         |       |    X    |         |    X     |   X   |    X    |        |
 | RN-11     |         |       |    X    |         |    X     |       |    X    |        |
-
-  **RELACIONES**
   
 |           | Crea | Escucha | Publica | Contiene | Es Agregado a | Tiene un |
 |:----------|:----:|:-------:|:-------:|:--------:|:-------------:|:--------:|
