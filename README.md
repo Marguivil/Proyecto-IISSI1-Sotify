@@ -14,7 +14,7 @@
 ### Situacion actual
 Spotify ha caido en una demanda por practicas monopolisticas por la CNMC (Comisión Nacional de los Mercados y la Competencia) y actualmente se encuentra inoperativa. Para ello, a compañía ha tomado la decisión de dividirse en dos entidades independientes: por un lado, Spotify, y por otro, Sotify, planteada como la alternativa antimonopolio ofrecida por la CNMC. El proyecto consiste en diseñar la aplicación de streaming musical junto con su base de datos que permita organizar y gestionar la información de manera eficiente.
 
-## Problemas detectados
+### Problemas detectados
 La situación actual plantea diversas necesidades críticas que deben resolverse para poner en marcha el servicio:
 
 * **Inoperatividad del servicio**: A raíz de la demanda de la CNMC y la posterior partición de la empresa, el servicio se encuentra inactivo y requiere una nueva plataforma funcional para operar bajo el marco antimonopolio.
@@ -214,95 +214,87 @@ Como gestor de la aplicación, quiero disponer de la información correspondient
 ##### R.N.01. Unicidad del correo electrónico
 
 Cada cuenta de usuario debe estar asociada a una dirección de correo electrónico única. No se permitirá registrar dos cuentas con la misma dirección de correo electrónico.
+
 * **Prueba de aceptación**:
 - **Caso válido:** Ana se registra con `ana.hermoso.martin@mail.com` y ese correo no existe en el sistema -> el sistema crea la cuenta.
 - **Caso inválido:** otra persona intenta registrarse con `ana.hermoso.martin@mail.com` -> el sistema rechaza el registro, muestra un mensaje de correo ya registrado y no crea la segunda cuenta.
 
 
-
-##### R.N.02. Validación de los datos de registro
-
-Para crear una cuenta, el usuario debe proporcionar todos los datos obligatorios y una dirección de correo electrónico con formato válido. La contraseña debe cumplir las condiciones de seguridad establecidas para la aplicación.
-* **Prueba de aceptación**:
-- **Caso válido:** el usuario completa todos los campos obligatorios, con correo `oscar@mail.com` y una contraseña que cumple las condiciones de seguridad -> el sistema crea la cuenta.
-- **Caso inválido:** falta un dato obligatorio (por ejemplo, el nombre de usuario) -> el sistema bloquea el registro e indica el campo que falta.
-
-
-
-##### R.N.03. Protección de las credenciales
-
-Las contraseñas de los usuarios no deben almacenarse en texto plano. El sistema debe utilizar un mecanismo seguro de almacenamiento de contraseñas y comprobar las credenciales durante el inicio de sesión.
-* **Prueba de aceptación**:
-- **Caso válido:** Ana se registra con la contraseña `Clave#2026` -> el valor almacenado es un hash distinto de la contraseña original. Al iniciar sesión con `Clave#2026`, el sistema compara las credenciales y concede el acceso.
-- **Caso inválido 1:** Ana intenta iniciar sesión con una contraseña incorrecta -> el sistema deniega el acceso.
-- **Caso inválido 2:** se consulta la información almacenada de los usuarios -> en ningún caso aparece una contraseña en texto plano.
-
-
-##### R.N.04. Autenticación para operaciones personales
-
-Las operaciones de creación, modificación y eliminación de listas de reproducción requieren que el usuario haya iniciado sesión. El sistema debe verificar la identidad del usuario antes de permitir estas operaciones.
-* **Prueba de aceptación**:
-- **Caso válido:** Ana, con sesión iniciada, crea la lista «Para correr» -> el sistema permite la operación.
-- **Caso inválido:** un visitante sin sesión intenta crear, renombrar o eliminar una lista -> el sistema bloquea la operación, solicita iniciar sesión y no modifica ninguna lista.
-
-
-##### R.N.05. Disponibilidad del contenido musical
-
-Solo podrán consultarse y reproducirse como contenido disponible las canciones que estén registradas en el catálogo y habilitadas para su reproducción.
-* **Prueba de aceptación**:
-- **Caso válido:** «Just Dance» está registrada en el catálogo con `habilitada = true` -> aparece en las consultas, se puede reproducir y se puede añadir a listas.
-- **Caso inválido 1:** una canción con `habilitada = false` -> no se muestra como disponible, no se reproduce y no se puede añadir a una lista.
-- **Caso inválido 2:** una canción que no existe en el catálogo -> el sistema no permite reproducirla ni asociarla a ninguna lista.
-
-
-##### R.N.06. Propiedad de las listas de reproducción
-
-Cada lista de reproducción debe estar asociada a un único usuario propietario. El usuario propietario será el responsable de gestionar el nombre de la lista y las canciones que contiene.
-* **Prueba de aceptación**:
-- **Caso válido:** Ana crea la lista «Para correr» -> la lista queda asociada a Ana como única propietaria y solo ella puede gestionarla.
-- **Caso inválido 1:** se intenta crear una lista sin propietario -> el sistema rechaza la operación y no se crea la lista.
-- **Caso inválido 2:** se intenta asignar dos propietarios a la misma lista -> el sistema rechaza la operación.
-
-
-##### R.N.07. Validez del nombre de una lista
+##### R.N.02. Validez del nombre de una lista de reproducción
 
 Toda lista de reproducción debe tener un nombre no vacío. No se permitirá crear una lista ni modificar su nombre utilizando únicamente espacios en blanco.
+
 * **Prueba de aceptación**:
 - **Caso válido:** Ana crea la lista «Para correr» o renombra otra a «Favoritas de Ana» -> el sistema acepta el nombre.
 - **Caso inválido:** Ana intenta crear una lista con nombre vacío -> el sistema rechaza la operación y no se crea la lista (EP-02).
 
 
-##### R.N.08. Control de acceso a las listas
+##### R.N.03. Permisos de publicación según el rol
 
-Un usuario solo podrá modificar o eliminar las listas de reproducción de las que sea propietario. Tampoco podrá añadir o eliminar canciones de listas pertenecientes a otros usuarios.
+Solo los usuarios registrados con el rol de Artista o Administrador tienen privilegios para dar de alta álbumes o canciones en el catálogo. Un usuario con rol estándar (Cliente) carece de permisos de escritura sobre el catálogo general.
+
 * **Prueba de aceptación**:
-- **Caso válido:** Ana añade «Just Dance» a su propia lista «Para correr» y, después, elimina esa lista -> el sistema permite ambas operaciones.
+* **Caso válido**: un usuario con perfil de Artista da de alta un nuevo álbum -> el sistema registra el contenido en el catálogo.
+* **Caso inválido**: un usuario con rol de Cliente intenta registrar una canción -> el sistema bloquea la operación y devuelve un error de permisos insuficientes.
+
+
+##### R.N.04. Validación de la duración y fecha de publicación
+
+Toda canción registrada en el catálogo debe tener una duración (en segundos) estrictamente mayor que cero (`duracion > 0`). Asimismo, la fecha de publicación de un álbum no puede ser posterior a la fecha actual del sistema.
+
+* **Prueba de aceptación**:
+- **Caso válido:** un artista registra una canción de 210 segundos dentro de un álbum con fecha de publicación igual o anterior a hoy -> el sistema guarda el registro en el catálogo.
+- **Caso inválido 1:** se intenta registrar una canción con duración `0` o negativa -> el sistema rechaza el registro indicando que la duración no es válida.
+- **Caso inválido 2:** se intenta publicar un álbum con fecha del año siguiente -> el sistema bloquea la operación indicando que la fecha de publicación no es válida.
+
+
+##### R.N.05. No duplicidad de canciones en una misma lista
+
+Una lista de reproducción no puede contener pistas repetidas. Si un usuario intenta añadir una canción individual o un álbum que ya cuenta con temas presentes en la lista, el sistema omitirá los duplicados.
+
+* **Prueba de aceptación:
+- **Caso válido**: Ana añade «Just Dance» a su lista «Para correr», donde la canción no figuraba previamente -> el sistema asocia la canción a la lista.
+- **Caso inválido**: Ana intenta añadir nuevamente «Just Dance» a «Para correr» -> el sistema detecta que la canción ya existe en dicha lista y no genera un registro duplicado.
+
+
+##### R.N.06. Propiedad y control de acceso a las listas
+
+Cada lista de reproducción debe estar asociada a un único usuario propietario. Un usuario solo podrá modificar (cambiar el nombre, añadir o quitar canciones) o eliminar las listas de las que sea propietario, salvo que tenga rol de `Administrador`.
+
+* **Prueba de aceptación**:
+- **Caso válido:** Ana crea la lista «Para correr», añade «Just Dance» y, después, elimina esa lista -> el sistema permite todas las operaciones al ser la única propietaria.
 - **Caso inválido 1:** Oscar intenta añadir «Just Dance» a «Para correr», propiedad de Ana -> el sistema rechaza la operación y la lista conserva su contenido (EP-03).
 - **Caso inválido 2:** Oscar intenta eliminar una canción de la lista de Ana o eliminar la lista completa -> el sistema bloquea la operación y la lista permanece intacta.
 
 
-##### R.N.09. Integridad del catálogo musical
+##### R.N.07. Integridad al añadir un álbum completo a una lista
 
-Eliminar una canción de una lista de reproducción no debe eliminar la canción del catálogo musical. La canción debe seguir disponible para otros usuarios y para otras listas, siempre que continúe habilitada en el catálogo.
+Para poder añadir un álbum entero a una lista de reproducción, dicho álbum debe contener al menos una canción habilitada en el catálogo (`totalCanciones >= 1`).
+
+* **Prueba de aceptación**:
+- **Caso válido:** Ana selecciona añadir a su lista «Para correr» un álbum que tiene 10 canciones registradas -> el sistema inserta las 10 canciones del álbum en su lista.
+- **Caso inválido:** Ana intenta añadir a su lista un álbum recién creado que aún no tiene canciones asociadas -> el sistema cancela la operación e informa de que el álbum está vacío.
+
+
+
+##### R.N.08. Integridad del catálogo musical al modificar listas
+
+Eliminar una canción de una lista de reproducción (o eliminar la lista completa) no debe eliminar la canción del catálogo musical. La canción debe seguir disponible para otros usuarios y para otras listas.
+
 * **Prueba de aceptación**:
 - **Caso válido:** Ana elimina «Bad Romance» de su lista «Favoritas de Ana» -> la canción desaparece de esa lista, pero sigue existiendo en el catálogo y en otras listas que la contengan, como «Para correr» (EP-05).
-- **Caso inválido:** al quitar una canción de una lista, el sistema la elimina también del catálogo -> la prueba falla. La canción debe seguir accesible para el resto de usuarios.
+- **Caso inválido:** al quitar una canción de una lista, el sistema la elimina también del catálogo general -> la prueba falla. La canción debe seguir accesible para el resto de usuarios.
 
 
-##### R.N.10. Integridad de las relaciones entre datos
+##### R.N.09. Restricción en el seguimiento de artistas
 
-Toda lista de reproducción debe estar asociada a un usuario existente, y toda canción incluida en una lista debe existir en el catálogo musical. El sistema no debe permitir relaciones que hagan referencia a usuarios, listas o canciones inexistentes.
+Un usuario no puede seguir a un mismo artista más de una vez. Además, si un usuario tiene perfil de `Artista`, el sistema no le permitirá seguirse a sí mismo.
+
 * **Prueba de aceptación**:
-- **Caso válido:** se añade una canción existente y habilitada a una lista existente, propiedad de un usuario existente -> el sistema crea la relación.
-- **Caso inválido:** se intenta crear una lista asociada a un usuario inexistente -> el sistema rechaza la operación.
+- **Caso válido:** Ana pulsa en seguir a un artista al que no seguía previamente -> el sistema registra la relación de seguimiento.
+- **Caso inválido 1:** Ana intenta volver a seguir a un artista al que ya sigue -> el sistema impide duplicar el registro de seguimiento.
+- **Caso inválido 2:** un usuario con perfil de `Artista` intenta seguir a su propio perfil -> el sistema bloquea la acción indicando que no puede seguirse a sí mismo.
 
-
-##### R.N.11. Conservación de la información personal
-
-Las listas de reproducción y sus asociaciones con las canciones deben mantenerse almacenadas al cerrar sesión. Cuando el usuario vuelva a iniciar sesión, debe poder recuperar sus listas y consultar su contenido.
-* **Prueba de aceptación**:
-- **Caso válido:** Ana crea «Para correr» con dos canciones y cierra sesión. Al volver a iniciar sesión, encuentra la lista con el mismo nombre y las mismas dos canciones.
-- **Caso inválido:** tras cerrar sesión, las listas de Ana desaparecen o pierden canciones -> la prueba falla. El sistema debe conservar siempre las listas y sus asociaciones.
 
 ### 4.2. Mapa de historias de usuario (opcional)
 <img width="1651" height="525" alt="image" src="https://github.com/user-attachments/assets/657aeab3-bc3f-414b-800d-e63115f4fc3c" />
@@ -312,27 +304,27 @@ Las listas de reproducción y sus asociaciones con las canciones deben manteners
 ### 4.3. Requisitos no funcionales (opcional)
 
 **R.N.F. 01. Disponibilidad 24/7**
-Como gestor de la aplicación, quiero que la disponibilidad del sistema sea 24/7, para que los usuarios puedan reproducir contenido ininterrumpidamente
+Como gestor de la aplicación, quiero que la disponibilidad del sistema sea 24/7, para que los usuarios puedan reproducir contenido ininterrumpidamente.
 
 
 **R.N.F. 02. Disponibilidad sin conexión**
-Como gestor de la aplicación, quiero que los usuarios puedan descargarse contenido, para que en caso de que pierdan la conexión, puedan seguir reproduciendo todo aquel contenido que tienen descargado
+Como gestor de la aplicación, quiero que los usuarios puedan descargarse contenido, para que en caso de que pierdan la conexión, puedan seguir reproduciendo todo aquel contenido que tienen descargado.
 
 
 **R.N.F. 03. Seguridad**
-Como gestor de la aplicación, quiero que no se pueda acceder a los datos personales de los usuarios y que las contraseñas estén cifradas de manera segura, para cumplir con la Ley de Protección de Datos y garantizar la tranquilidad del usuario
+Como gestor de la aplicación, quiero que no se pueda acceder a los datos personales de los usuarios y que las contraseñas estén cifradas de manera segura, para cumplir con la Ley de Protección de Datos y garantizar la seguridad del usuario.
 
 
 **R.N.F. 04. Rendimiento**
-Como gestor de la aplicación, quiero que esta sea capaz de atender las peticiones de todos los usuarios, garantizando que los resultados se mostraran en pocos segundos
+Como gestor de la aplicación, quiero que esta sea capaz de atender las peticiones de todos los usuarios, garantizando que los resultados se mostraran en pocos segundos.
 
 
 **R.N.F. 05. Compatibilidad**
-Como gestor de la aplicación, quiero que garantice que los datos del usuario (listas de reproducción, artistas favoritos, etc) están sincronizados desde donde abra la aplicación, incluídos dispositivos distintos
+Como gestor de la aplicación, quiero que garantice que los datos del usuario (listas de reproducción, artistas favoritos, etc) están sincronizados desde donde abra la aplicación, incluídos dispositivos distintos.
 
 
 **R.N.F. 06. Facilidad de uso**
-Como gestor de la aplicación, quiero que sea intuitiva y sencilla de navegar, y que los usuarios puedan encontrar lo que busquen sin complicaciones
+Como gestor de la aplicación, quiero que sea intuitiva y sencilla de navegar, y que los usuarios puedan encontrar lo que busquen sin complicaciones.
 
 
 ---
