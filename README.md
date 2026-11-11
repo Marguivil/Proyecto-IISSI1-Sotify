@@ -341,7 +341,7 @@ Como gestor de la aplicación, quiero que sea intuitiva y sencilla de navegar, y
 
 ### 5.1. Diagramas de clases UML
 
-<img width="1095" height="1742" alt="Modelado IISSI1 drawio (3)" src="https://github.com/user-attachments/assets/75c810c5-46dd-4071-b66e-7d254b84cc52" />
+<img width="1095" height="1742" alt="Modelado IISSI1 drawio (3)" src="https://github.com/Marguivil/Proyecto-IISSI1-Sotify/blob/main/img/Music%20Streaming%20Entity%20Model-2026-11-11-161503.png" />
 
 
 
