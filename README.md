@@ -11,11 +11,23 @@
 
 ## 1. Introducción al problema
 
-Spotify ha caido en una demanda por practicas monopolisticas por la CNMC (Comisión Nacional de los Mercados y la Competencia) y actualmente se encuentra inoperativa. Para ello, la empresa de Spotify decide partir la empresa en dos. Una parte con Spotify o otra con Sotify, la alternativa antimonopolio que ha ofrecido la CNMC. El proyecto consiste en diseñar la aplicación de streaming musical junto con su base de datos que permita organizar y gestionar la información de manera eficiente (incluso mejor que la original).
+### Situacion actual
+Spotify ha caido en una demanda por practicas monopolisticas por la CNMC (Comisión Nacional de los Mercados y la Competencia) y actualmente se encuentra inoperativa. Para ello, a compañía ha tomado la decisión de dividirse en dos entidades independientes: por un lado, Spotify, y por otro, Sotify, planteada como la alternativa antimonopolio ofrecida por la CNMC. El proyecto consiste en diseñar la aplicación de streaming musical junto con su base de datos que permita organizar y gestionar la información de manera eficiente.
 
-Los usuarios podrán crear sus propias listas de reproduccion, seguir a sus artistas favoritos, reproducir canciones y consultar su historial de música. Por otro lado, los artistas podrán publicar álbumes y canciones, así como reproducir música dentro de la plataforma.
+## Problemas detectados
+La situación actual plantea diversas necesidades críticas que deben resolverse para poner en marcha el servicio:
 
-La finalidad del proyecto es desarrollar un modelo de base de datos que represente correctamente las relaciones entre las distintas entidades, facilite la consulta y actualización. De esta forma, se pretende crear una estructura que permita cumplir las necesidades de los usuarios y los artistas.
+* **Inoperatividad del servicio**: A raíz de la demanda de la CNMC y la posterior partición de la empresa, el servicio se encuentra inactivo y requiere una nueva plataforma funcional para operar bajo el marco antimonopolio.
+* **Ausencia de estructura de datos definida**: No existe un modelo implementado para Sotify que represente las relaciones entre las distintas entidades del negocio (usuarios, artistas, álbumes, canciones y listas de reproducción).
+
+### Expectativas y Solución
+El objetivo del proyecto es diseñar la aplicación de streaming musical Sotify junto con su base de datos, desarrollando un modelo que represente correctamente las relaciones entre las distintas entidades. Además de optimizar la gestión, consulta y actualización de los datos.
+
+Las expectativas principales para el nuevo sistema son:
+1. **Gestión e interacción de usuarios**: Permitir a los usuarios crear sus propias listas de reproducción, seguir a sus artistas favoritos, reproducir canciones y consultar su historial de música.
+2. **Gestión de contenido para artistas**: Facilitar a los artistas la publicación de sus álbumes y canciones, además de permitirles reproducir música dentro de la propia plataforma.
+3. **Eficiencia estructural**: Consolidar una base de datos con un rendimiento y una organización superiores a la versión original, satisfaciendo de forma íntegra las necesidades tanto de los usuarios como de los artistas.
+
 
 ![Logo de Sotify](img/Sotify_Logo.png)
 *Logo de Sotify*
@@ -75,67 +87,92 @@ Este glosario recoge los principales términos relacionados con el dominio del p
 
 ### 4.1. Requisitos funcionales
 
-#### R.F.01. Inicio de sesión
-* **Como**: Usuario registrado
-* **Quiero**: Iniciar sesión con mi correo electrónico y contraseña.
-* **Para**: Acceder a mi cuenta personal y a las funcionalidades que requieren autenticación.
-* **Prueba de aceptación**: Con credenciales correctas, el sistema da acceso a la cuenta correspondiente. Con credenciales incorrectas, muestra un mensaje de error y deniega el acceso. Un usuario sin sesión iniciada no puede acceder a las funcionalidades protegidas.
-
-
-#### R.F.02. Consulta del catálogo musical
+#### R.F.01. Consulta del catálogo musical
 
 * **Como**: Usuario
 * **Quiero**: Listar las canciones, artistas y álbumes disponibles en la aplicación, y consultar las canciones asociadas a un álbum o a un artista.
 * **Para**: Descubrir la música disponible en el catálogo.
-* **Prueba de aceptación**: El sistema muestra las canciones, artistas y álbumes del catálogo (consulta sobre las tablas Cancion, Artista y Album). Al seleccionar un álbum o un artista, devuelve sus canciones asociadas. Si el catálogo está vacío, informa de que no hay contenido disponible. La consulta no modifica ningún dato.
+
+
+
+#### R.F.02. Filtrado de canciones por género musical
+
+* **Como**: Usuario
+* **Quiero**: Consultar y clasificar las canciones según su género musical.
+* **Para**: Encontrar obras musicales que se ajusten a un estilo concreto.
+
 
 
 #### R.F.03. Búsqueda de música
 
 * **Como**: Usuario
-* **Quiero**: Buscar canciones, artistas y álbumes por su nombre.
+* **Quiero**: Buscar canciones por su título, así como artistas y álbumes por su nombre.
 * **Para**: Encontrar rápidamente la música que deseo escuchar.
-* **Prueba de aceptación**: Al introducir un texto, el sistema devuelve los elementos cuyo nombre coincida, diferenciando si son canciones, artistas o álbumes. Si no hay coincidencias, informa de que no se han encontrado resultados. La búsqueda no modifica ningún dato.
 
 
-#### R.F.04. Reproducción y pausa de canciones
+
+#### R.F.04. Control de reproducción multimedia
 
 * **Como**: Usuario
-* **Quiero**: Reproducir y pausar canciones del catálogo.
-* **Para**: Escuchar la música disponible en la aplicación.
-* **Prueba de aceptación**: Al seleccionar una canción disponible, el reproductor inicia la reproducción y muestra su título, el nombre del artista y el estado actual (reproduciendo o en pausa). El usuario puede pausar la canción en curso. Si la canción no está disponible para su reproducción, el sistema informa al usuario.
+* **Quiero**: Iniciar y pausar canciones del catálogo, así como adelantar a la siguiente canción o retroceder a la anterior.
+* **Para**: Escuchar la música disponible en la aplicación y controlar el orden de reproducción.
 
 
-#### R.F.05. Creación de listas de reproducción
+
+#### R.F.05. Reproducción en modo aleatorio
+
+* **Como**: Usuario
+* **Quiero**: Reproducir una lista de reproducción en modo aleatorio.
+* **Para**: Escuchar las canciones de la lista sin un orden definido.
+
+
+
+#### R.F.06. Creación de listas de reproducción
 
 * **Como**: Usuario registrado
-* **Quiero**: Crear listas de reproducción con un nombre.
-* **Para**: Organizar las canciones según mis preferencias.
-* **Prueba de aceptación**: El sistema crea la lista asociada al usuario autenticado y la muestra en su colección personal. No permite crear listas con nombre vacío o formado solo por espacios en blanco, y en ese caso la colección no muestra ninguna lista nueva. El usuario solo ve en su colección las listas propias.
+* **Quiero**: Crear listas de reproducción personales con un nombre.
+* **Para**: Agrupar y organizar las canciones según mis preferencias.
 
 
-#### R.F.06. Gestión de canciones en una lista de reproducción
+
+#### R.F.07. Gestión de canciones y álbumes en una lista de reproducción
 
 * **Como**: Usuario registrado
-* **Quiero:** Añadir canciones del catálogo a mis listas y eliminarlas de ellas.
+* **Quiero**: Añadir canciones individuales o un álbum entero (incorporando todas sus canciones) a mis listas de reproducción, y eliminarlas de ellas.
 * **Para**: Mantener las listas actualizadas con la música que me interesa.
-* **Prueba de aceptación**: Al añadir una canción a una lista propia, esta aparece en su contenido y se conserva tras cerrar sesión y volver a iniciarla. Al eliminarla, deja de aparecer en la lista pero sigue disponible en el catálogo. El usuario no puede modificar el contenido de listas pertenecientes a otras cuentas, y estas permanecen sin cambios.
 
 
-#### R.F.07. Modificación y eliminación de listas de reproducción
 
-* **Como:** Usuario registrado
-* **Quiero:** Cambiar el nombre de mis listas de reproducción o eliminarlas.
-* **Para:** Mantener organizada mi colección musical.
-* **Prueba de aceptación:** El sistema permite renombrar una lista propia, pero no guardar un nombre vacío. Antes de eliminar una lista solicita confirmación; tras confirmarla, la lista deja de aparecer en la cuenta del usuario. El usuario no puede modificar ni eliminar listas de otras cuentas.
+#### R.F.08. Modificación y eliminación de listas de reproducción
+
+* **Como**: Usuario registrado
+* **Quiero**: Cambiar el nombre de mis listas de reproducción o eliminarlas.
+* **Para**: Mantener organizada mi colección musical.
 
 
-#### R.F.08. Cierre de sesión
 
-* **Como:** Usuario autenticado
-* **Quiero:** Cerrar sesión.
-* **Para:** Finalizar mi acceso a la cuenta de forma segura.
-* **Prueba de aceptación:** El sistema ofrece una opción de cerrar sesión. Tras usarla, el usuario deja de tener acceso a las funcionalidades que requieren autenticación y debe iniciar sesión de nuevo para volver a acceder.
+#### R.F.09. Seguimiento de artistas
+
+* **Como**: Usuario registrado
+* **Quiero**: Seguir a mis artistas favoritos dentro de la plataforma.
+* **Para**: Mantenerme vinculado a los artistas cuya música me interesa.
+
+
+
+#### R.F.10. Consulta del historial de música
+
+* **Como**: Usuario registrado
+* **Quiero**: Consultar mi historial de canciones reproducidas.
+* **Para**: Revisar la música que he escuchado anteriormente en la plataforma.
+
+
+
+#### R.F.11. Publicación de álbumes
+
+* **Como**: Artista
+* **Quiero**: Publicar álbumes indicando su título, fecha de publicación, portada y el artista o artistas asociados.
+* **Para**: Dar a conocer mis obras musicales completas dentro del catálogo de la plataforma.
+
 
 ---
   
@@ -177,56 +214,68 @@ Como gestor de la aplicación, quiero disponer de la información correspondient
 ##### R.N.01. Unicidad del correo electrónico
 
 Cada cuenta de usuario debe estar asociada a una dirección de correo electrónico única. No se permitirá registrar dos cuentas con la misma dirección de correo electrónico.
+* **Prueba de aceptación**:
 
 
 ##### R.N.02. Validación de los datos de registro
 
 Para crear una cuenta, el usuario debe proporcionar todos los datos obligatorios y una dirección de correo electrónico con formato válido. La contraseña debe cumplir las condiciones de seguridad establecidas para la aplicación.
+* **Prueba de aceptación**:
 
 
 ##### R.N.03. Protección de las credenciales
 
 Las contraseñas de los usuarios no deben almacenarse en texto plano. El sistema debe utilizar un mecanismo seguro de almacenamiento de contraseñas y comprobar las credenciales durante el inicio de sesión.
-
+* **Prueba de aceptación**:
+* **Prueba de aceptación**:
 
 ##### R.N.04. Autenticación para operaciones personales
 
 Las operaciones de creación, modificación y eliminación de listas de reproducción requieren que el usuario haya iniciado sesión. El sistema debe verificar la identidad del usuario antes de permitir estas operaciones.
+* **Prueba de aceptación**:
 
 
 ##### R.N.05. Disponibilidad del contenido musical
 
 Solo podrán consultarse y reproducirse como contenido disponible las canciones que estén registradas en el catálogo y habilitadas para su reproducción.
+* **Prueba de aceptación**:
 
 
 ##### R.N.06. Propiedad de las listas de reproducción
 
 Cada lista de reproducción debe estar asociada a un único usuario propietario. El usuario propietario será el responsable de gestionar el nombre de la lista y las canciones que contiene.
+* **Prueba de aceptación**:
 
 
 ##### R.N.07. Validez del nombre de una lista
 
 Toda lista de reproducción debe tener un nombre no vacío. No se permitirá crear una lista ni modificar su nombre utilizando únicamente espacios en blanco.
+* **Prueba de aceptación**:
 
 
 ##### R.N.08. Control de acceso a las listas
 
 Un usuario solo podrá modificar o eliminar las listas de reproducción de las que sea propietario. Tampoco podrá añadir o eliminar canciones de listas pertenecientes a otros usuarios.
+* **Prueba de aceptación**:
 
 
 ##### R.N.09. Integridad del catálogo musical
 
 Eliminar una canción de una lista de reproducción no debe eliminar la canción del catálogo musical. La canción debe seguir disponible para otros usuarios y para otras listas, siempre que continúe habilitada en el catálogo.
+* **Prueba de aceptación**:
 
 
 ##### R.N.10. Integridad de las relaciones entre datos
 
 Toda lista de reproducción debe estar asociada a un usuario existente, y toda canción incluida en una lista debe existir en el catálogo musical. El sistema no debe permitir relaciones que hagan referencia a usuarios, listas o canciones inexistentes.
+* **Prueba de aceptación**:
 
 
 ##### R.N.11. Conservación de la información personal
 
 Las listas de reproducción y sus asociaciones con las canciones deben mantenerse almacenadas al cerrar sesión. Cuando el usuario vuelva a iniciar sesión, debe poder recuperar sus listas y consultar su contenido.
+* **Prueba de aceptación**:
+
 
 ### 4.2. Mapa de historias de usuario (opcional)
 <img width="1651" height="525" alt="image" src="https://github.com/user-attachments/assets/657aeab3-bc3f-414b-800d-e63115f4fc3c" />
@@ -238,20 +287,26 @@ Las listas de reproducción y sus asociaciones con las canciones deben manteners
 **R.N.F. 01. Disponibilidad 24/7**
 Como gestor de la aplicación, quiero que la disponibilidad del sistema sea 24/7, para que los usuarios puedan reproducir contenido ininterrumpidamente
 
+
 **R.N.F. 02. Disponibilidad sin conexión**
 Como gestor de la aplicación, quiero que los usuarios puedan descargarse contenido, para que en caso de que pierdan la conexión, puedan seguir reproduciendo todo aquel contenido que tienen descargado
+
 
 **R.N.F. 03. Seguridad**
 Como gestor de la aplicación, quiero que no se pueda acceder a los datos personales de los usuarios y que las contraseñas estén cifradas de manera segura, para cumplir con la Ley de Protección de Datos y garantizar la tranquilidad del usuario
 
+
 **R.N.F. 04. Rendimiento**
 Como gestor de la aplicación, quiero que esta sea capaz de atender las peticiones de todos los usuarios, garantizando que los resultados se mostraran en pocos segundos
+
 
 **R.N.F. 05. Compatibilidad**
 Como gestor de la aplicación, quiero que garantice que los datos del usuario (listas de reproducción, artistas favoritos, etc) están sincronizados desde donde abra la aplicación, incluídos dispositivos distintos
 
+
 **R.N.F. 06. Facilidad de uso**
 Como gestor de la aplicación, quiero que sea intuitiva y sencilla de navegar, y que los usuarios puedan encontrar lo que busquen sin complicaciones
+
 
 ---
 
@@ -276,7 +331,7 @@ Para validar el modelo se definen los siguientes escenarios de instanciación co
 
 **Objetos involucrados:**
 
-- `u1:Usuario` (nombreUsuario="ana")
+- `u1:Usuario` (nombreUsuario="Ana")
 - `l1:ListaReproduccion` (nombre="Para correr", numCanciones=2)
 - `c2:Cancion` (titulo="Bad Romance")
 - `c1:Cancion` (titulo="Poker Face")
@@ -305,12 +360,12 @@ Para validar el modelo se definen los siguientes escenarios de instanciación co
 
 **Objetivo:** Verificar que un usuario no puede añadir ni eliminar canciones de una lista de la que no es propietario.
 
-**Descripción textual:** El usuario **beto** intenta añadir la canción «Just Danceg» a la lista «Para correr», cuya propietaria es **ana**. El sistema detecta que Beto no es el propietario, rechaza la operación y la lista conserva su contenido.
+**Descripción textual:** El usuario **Oscar** intenta añadir la canción «Just Danceg» a la lista «Para correr», cuya propietaria es **Ana**. El sistema detecta que **Oscar** no es el propietario, rechaza la operación y la lista conserva su contenido.
 
 **Objetos involucrados:**
 
-- `u1:Usuario` (nombreUsuario="ana")
-- `u2:Usuario` (nombreUsuario="beto")
+- `u1:Usuario` (nombreUsuario="Ana")
+- `u2:Usuario` (nombreUsuario="Oscar")
 - `l1:ListaReproduccion` (nombre="Para correr", numCanciones=2) propiedad de `u1`
 - `c3:Cancion` (titulo="Just Dance", habilitada=true)
 - Intento de enlace `l1` – `c3` por `u2` -> **BLOQUEADO**
@@ -323,12 +378,12 @@ Para validar el modelo se definen los siguientes escenarios de instanciación co
 
 Objetivo: Comprobar que no pueden coexistir dos cuentas con el mismo correo electrónico.
 
-Descripción textual: La cliente **ana** tiene el correo ana.hermoso.martin@mail.com. A Ana se le olvida que tenía una cuenta en Sotify e intenta registrarse de nuevo en el sistema con el mismo correo y contraseña pero distinto nombre (**American Vibes**). El sistema rechaza el registro y no crea la segunda cuenta.
+Descripción textual: La cliente **Ana** tiene el correo ana.hermoso.martin@mail.com. A Ana se le olvida que tenía una cuenta en Sotify e intenta registrarse de nuevo en el sistema con el mismo correo y contraseña pero distinto nombre (**American Vibes**). El sistema rechaza el registro y no crea la segunda cuenta.
 
 **Objetos involucrados:**
 
-- `u1:Usuario` (nombreUsuario=ana", correo="ana@mail.com")
-- `u3:Usuario` (nombreUsuario="ana2", correo="ana@mail.com") -> **NO SE CREA**
+- `u1:Usuario` (nombreUsuario=Ana", correo="ana.hermoso.martin@mail.com")
+- `u3:Usuario` (nombreUsuario="American Vibes", correo="ana.hermoso.martin@mail.com") -> **NO SE CREA**
 
 ![Diagrama de objetos EP-04](img/ep04.png)
 
@@ -338,13 +393,13 @@ Descripción textual: La cliente **ana** tiene el correo ana.hermoso.martin@mail
 
 **Objetivo:** Comprobar que quitar una canción de una lista elimina solo el enlace, sin afectar al catálogo ni a otras listas.
 
-**Descripción textual:** La usuaria **ana** tiene la lista «Para correr» con «Bad Romance» y «Poker Face», y otra lista «Favoritas de Ana» que también contiene «Poker Face». Elimina «Poker Face» de «Para correr». La canción deja de aparecer en esa lista, pero sigue existiendo en el catálogo y en «Favoritas de Ana».
+**Descripción textual:** La usuaria **Ana** tiene la lista «Para correr» con «Bad Romance» y «Poker Face», y otra lista «Favoritas de Ana» que también contiene «Poker Face». Elimina «Poker Face» de «Para correr». La canción deja de aparecer en esa lista, pero sigue existiendo en el catálogo y en «Favoritas de Ana».
 
 **Objetos involucrados:**
 
-- `u1:Usuario` (nombreUsuario="ana")
+- `u1:Usuario` (nombreUsuario="Ana")
 - `l1:ListaReproduccion` (nombre="Para correr", numCanciones=1)
-- `l5:ListaReproduccion` (nombre="Favoritas de ana")
+- `l5:ListaReproduccion` (nombre="Favoritas de Ana")
 - `c1:Cancion` ("Poker Face") y `c2:Cancion` ("Bad Romance")
 - Enlace `l1` – `c2` -> **ELIMINADO**; `c2` sigue enlazada con `l5`
 
@@ -356,11 +411,11 @@ Descripción textual: La cliente **ana** tiene el correo ana.hermoso.martin@mail
 
 **Objetivo:** Verificar que solo se reproducen las canciones registradas y habilitadas en el catálogo.
 
-**Descripción textual:** La usuaria **ana** selecciona la canción «Paparazzi», que está marcada como no habilitada. El sistema no inicia la reproducción e informa a la usuaria de que la canción no está disponible.
+**Descripción textual:** La usuaria **Ana** selecciona la canción «Paparazzi», que está marcada como no habilitada. El sistema no inicia la reproducción e informa a la usuaria de que la canción no está disponible.
 
 **Objetos involucrados:**
 
-- `u1:Usuario` (nombreUsuario="ana")
+- `u1:Usuario` (nombreUsuario="Ana")
 - `c4:Cancion` (titulo="Paparazzi", habilitada=false)
 - Intento de reproducción de `c4` -> **BLOQUEADO**
 
@@ -381,16 +436,6 @@ Descripción textual: La cliente **ana** tiene el correo ana.hermoso.martin@mail
 | RF-7      |         |       |    X    |         |    X     |       |         |        |
 | RF-8      |    X    |       |         |         |          |       |         |        |  
 
-|           | Crea | Escucha | Publica | Contiene | Es Agregado a | Tiene un |
-|:----------|:----:|:-------:|:-------:|:--------:|:-------------:|:--------:|
-| RF-1      |      |         |         |          |               |          |
-| RF-2      |      |         |    X    |    X     |               |    X     |
-| RF-3      |      |         |    X    |    X     |               |    X     |
-| RF-4      |      |    X    |         |          |               |          |
-| RF-5      |  X   |         |         |          |               |          |
-| RF-6      |  X   |         |         |          |       X       |          |
-| RF-7      |  X   |         |         |          |               |          |
-| RF-8      |      |         |         |          |               |          |
 
 - Matriz de trazabilidad entre los elementos del modelo conceptual y los requisitos de información.
   
@@ -402,15 +447,7 @@ Descripción textual: La cliente **ana** tiene el correo ana.hermoso.martin@mail
 | RI-04     |         |       |         |    X    |          |   X   |         |        |
 | RI-05     |         |       |    X    |         |    X     |       |    X    |        |
 | RI-06     |         |       |    X    |         |          |       |    X    |        |
-  
-|           | Crea | Escucha | Publica | Contiene | Es Agregado a | Tiene un |
-|:----------|:----:|:-------:|:-------:|:--------:|:-------------:|:--------:|
-| RI-01     |      |         |    X    |    X     |               |    X     |
-| RI-02     |      |         |         |          |               |          |
-| RI-03     |      |         |    X    |    X     |               |          |
-| RI-04     |      |         |    X    |          |               |          |
-| RI-05     |  X   |         |         |          |       X       |          |
-| RI-06     |      |    X    |         |          |               |          |
+
 
 - Matriz de trazabilidad entre los elementos del modelo conceptual y las reglas de negocio.
   
@@ -427,20 +464,7 @@ Descripción textual: La cliente **ana** tiene el correo ana.hermoso.martin@mail
 | RN-09     |         |       |         |         |    X     |       |    X    |        |
 | RN-10     |         |       |    X    |         |    X     |   X   |    X    |        |
 | RN-11     |         |       |    X    |         |    X     |       |    X    |        |
-  
-|           | Crea | Escucha | Publica | Contiene | Es Agregado a | Tiene un |
-|:----------|:----:|:-------:|:-------:|:--------:|:-------------:|:--------:|
-| RN-01     |      |         |         |          |               |          |
-| RN-02     |      |         |         |          |               |          |
-| RN-03     |      |         |         |          |               |          |
-| RN-04     |  X   |         |         |          |               |          |
-| RN-05     |      |         |         |          |               |          |
-| RN-06     |  X   |         |         |          |               |          |
-| RN-07     |      |         |         |          |               |          |
-| RN-08     |  X   |         |         |          |               |          |
-| RN-09     |      |         |         |          |       X       |          |
-| RN-10     |  X   |         |    X    |    X     |       X       |          |
-| RN-11     |  X   |         |         |          |       X       |          |
+
 
 -- fin entregable 2 --
 
