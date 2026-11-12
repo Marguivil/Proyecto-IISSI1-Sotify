@@ -333,7 +333,7 @@ Como gestor de la aplicación, quiero que sea intuitiva y sencilla de navegar, y
 
 ### 5.1. Diagramas de clases UML
 
-<img width="1095" height="1742" alt="Modelado IISSI1 drawio (3)" src="https://github.com/Marguivil/Proyecto-IISSI1-Sotify/blob/main/img/Music%20Streaming%20Entity%20Model-2026-11-11-161503.png" />
+![Modelado Conceptual Sotify](img/MC_Sotify.png)
 
 
 
